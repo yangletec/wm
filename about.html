@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - TradePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .btn-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); transition: all 0.3s ease; }
+        .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .stat-number { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">T</span>
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold text-gray-800">TradePro</a>
+                </div>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-home">首页</a>
+                    <a href="solutions.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-solutions">解决方案</a>
+                    <a href="products.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-products">产品中心</a>
+                    <a href="cases.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-cases">客户案例</a>
+                    <a href="about.html" class="nav-link font-medium text-blue-600" data-lang="nav-about">关于我们</a>
+                    <a href="contact.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-contact">联系我们</a>
+                </div>
+                <div class="hidden lg:flex items-center gap-4">
+                    <div class="relative">
+                        <button id="lang-switcher" class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 transition-colors">
+                            <i class="fa fa-globe text-gray-600"></i>
+                            <span id="current-lang" class="text-gray-700 font-medium">中文</span>
+                            <i class="fa fa-chevron-down text-gray-400 text-xs"></i>
+                        </button>
+                        <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1">
+                            <button onclick="switchLanguage('zh')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 text-sm">中文</button>
+                            <button onclick="switchLanguage('en')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 text-sm">English</button>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn-gradient px-5 py-2.5 rounded-lg font-medium text-white" data-lang="nav-contact-btn">联系我们</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-600"><i class="fa fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex flex-col gap-3">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-home">首页</a>
+                    <a href="solutions.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-solutions">解决方案</a>
+                    <a href="products.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-products">产品中心</a>
+                    <a href="cases.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-cases">客户案例</a>
+                    <a href="about.html" class="font-medium text-blue-600 py-2" data-lang="nav-about">关于我们</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-contact">联系我们</a>
+                    <div class="flex items-center gap-4 pt-3 border-t">
+                        <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
+                        <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl">
+                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase" data-lang="page-tag">关于我们</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6" data-lang="page-title">您的全球贸易伙伴</h1>
+                <p class="text-xl text-blue-100" data-lang="page-desc">15年行业经验，为全球客户提供专业的贸易解决方案</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="text-5xl font-bold stat-number mb-2">15+</div>
+                    <div class="text-gray-600" data-lang="stat1">年行业经验</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold stat-number mb-2">50+</div>
+                    <div class="text-gray-600" data-lang="stat2">全球客户</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold stat-number mb-2">1000+</div>
+                    <div class="text-gray-600" data-lang="stat3">成功案例</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold stat-number mb-2">30+</div>
+                    <div class="text-gray-600" data-lang="stat4">国家地区</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase" data-lang="story-tag">我们的故事</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-6" data-lang="story-title">连接全球，创造价值</h2>
+                    <p class="text-gray-600 mb-6" data-lang="story-desc1">我们是一家专业的全球贸易解决方案提供商，拥有15年以上的外贸行业经验。</p>
+                    <p class="text-gray-600 mb-6" data-lang="story-desc2">我们的团队由经验丰富的国际贸易专业人士组成，致力于为客户提供高品质的产品和专业的服务。我们在全球范围内建立了稳定的供应链网络，帮助众多品牌成功进入国际市场。</p>
+                    <p class="text-gray-600" data-lang="story-desc3">我们的目标是通过创新和专业的服务，成为您最可信赖的全球贸易伙伴。</p>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="团队协作" class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase" data-lang="values-tag">核心价值</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3" data-lang="values-title">为什么选择我们</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8">
+                    <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-lightbulb-o text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="val1-title">创新思维</h3>
+                    <p class="text-gray-600" data-lang="val1-desc">不断寻找创新解决方案，为您的品牌带来差异化竞争优势</p>
+                </div>
+                <div class="text-center p-8">
+                    <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-handshake-o text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="val2-title">灵活合作</h3>
+                    <p class="text-gray-600" data-lang="val2-desc">根据您的需求提供定制化服务方案，灵活适应各种项目规模</p>
+                </div>
+                <div class="text-center p-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-check-circle-o text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="val3-title">品质保证</h3>
+                    <p class="text-gray-600" data-lang="val3-desc">严格的质量控制体系，确保每一件产品都达到最高标准</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase" data-lang="team-tag">核心团队</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3" data-lang="team-title">专业团队</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-4xl font-bold">Z</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1" data-lang="team1-name">张明</h3>
+                    <p class="text-blue-400 mb-2" data-lang="team1-title">创始人兼CEO</p>
+                    <p class="text-gray-400 text-sm" data-lang="team1-desc">15年外贸行业经验</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-green-500 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-4xl font-bold">L</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1" data-lang="team2-name">李华</h3>
+                    <p class="text-green-400 mb-2" data-lang="team2-title">销售总监</p>
+                    <p class="text-gray-400 text-sm" data-lang="team2-desc">全球销售专家</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-orange-500 to-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-4xl font-bold">W</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1" data-lang="team3-name">王芳</h3>
+                    <p class="text-orange-400 mb-2" data-lang="team3-title">供应链经理</p>
+                    <p class="text-gray-400 text-sm" data-lang="team3-desc">供应链管理专家</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-4xl font-bold">Z</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1" data-lang="team4-name">赵强</h3>
+                    <p class="text-pink-400 mb-2" data-lang="team4-title">客户服务经理</p>
+                    <p class="text-gray-400 text-sm" data-lang="team4-desc">客户关系管理专家</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-lang="cta-title">准备好开始合作了吗？</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto" data-lang="cta-desc">联系我们，了解更多关于我们的服务如何帮助您的业务增长</p>
+            <a href="contact.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white inline-flex items-center gap-2" data-lang="cta-btn">联系我们 <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">T</span>
+                        </div>
+                        <span class="text-xl font-bold">TradePro</span>
+                    </div>
+                    <p class="text-gray-400" data-lang="footer-desc">专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footer-nav">快速导航</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-home">首页</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-solutions">解决方案</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-products">产品中心</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-about">关于我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footer-contact">联系我们</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa fa-map-marker mr-2"></i> <span data-lang="footer-address">中国上海市浦东新区</span></li>
+                        <li><i class="fa fa-phone mr-2"></i> +86 123 4567 8910</li>
+                        <li><i class="fa fa-envelope mr-2"></i> info@tradepro.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footer-follow">关注我们</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 TradePro. <span data-lang="footer-rights">保留所有权利.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            zh: {
+                'nav-home': '首页', 'nav-solutions': '解决方案', 'nav-products': '产品中心', 'nav-cases': '客户案例', 'nav-about': '关于我们', 'nav-contact': '联系我们', 'nav-contact-btn': '联系我们',
+                'page-tag': '关于我们', 'page-title': '您的全球贸易伙伴', 'page-desc': '15年行业经验，为全球客户提供专业的贸易解决方案',
+                'stat1': '年行业经验', 'stat2': '全球客户', 'stat3': '成功案例', 'stat4': '国家地区',
+                'story-tag': '我们的故事', 'story-title': '连接全球，创造价值',
+                'story-desc1': '我们是一家专业的全球贸易解决方案提供商，拥有15年以上的外贸行业经验。',
+                'story-desc2': '我们的团队由经验丰富的国际贸易专业人士组成，致力于为客户提供高品质的产品和专业的服务。我们在全球范围内建立了稳定的供应链网络，帮助众多品牌成功进入国际市场。',
+                'story-desc3': '我们的目标是通过创新和专业的服务，成为您最可信赖的全球贸易伙伴。',
+                'values-tag': '核心价值', 'values-title': '为什么选择我们',
+                'val1-title': '创新思维', 'val1-desc': '不断寻找创新解决方案，为您的品牌带来差异化竞争优势',
+                'val2-title': '灵活合作', 'val2-desc': '根据您的需求提供定制化服务方案，灵活适应各种项目规模',
+                'val3-title': '品质保证', 'val3-desc': '严格的质量控制体系，确保每一件产品都达到最高标准',
+                'team-tag': '核心团队', 'team-title': '专业团队',
+                'team1-name': '张明', 'team1-title': '创始人兼CEO', 'team1-desc': '15年外贸行业经验',
+                'team2-name': '李华', 'team2-title': '销售总监', 'team2-desc': '全球销售专家',
+                'team3-name': '王芳', 'team3-title': '供应链经理', 'team3-desc': '供应链管理专家',
+                'team4-name': '赵强', 'team4-title': '客户服务经理', 'team4-desc': '客户关系管理专家',
+                'cta-title': '准备好开始合作了吗？', 'cta-desc': '联系我们，了解更多关于我们的服务如何帮助您的业务增长', 'cta-btn': '联系我们',
+                'footer-desc': '专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。',
+                'footer-nav': '快速导航', 'footer-contact': '联系我们', 'footer-address': '中国上海市浦东新区', 'footer-follow': '关注我们', 'footer-rights': '保留所有权利.'
+            },
+            en: {
+                'nav-home': 'Home', 'nav-solutions': 'Solutions', 'nav-products': 'Products', 'nav-cases': 'Cases', 'nav-about': 'About Us', 'nav-contact': 'Contact', 'nav-contact-btn': 'Contact Us',
+                'page-tag': 'About Us', 'page-title': 'Your Global Trade Partner', 'page-desc': '15 years of industry experience, providing professional trade solutions to global customers',
+                'stat1': 'Years Experience', 'stat2': 'Global Clients', 'stat3': 'Success Cases', 'stat4': 'Countries',
+                'story-tag': 'Our Story', 'story-title': 'Connecting Global, Creating Value',
+                'story-desc1': 'We are a professional global trade solutions provider with over 15 years of foreign trade industry experience.',
+                'story-desc2': 'Our team consists of experienced international trade professionals committed to providing high-quality products and professional services to customers. We have established a stable supply chain network globally, helping many brands successfully enter international markets.',
+                'story-desc3': 'Our goal is to become your most trusted global trade partner through innovation and professional service.',
+                'values-tag': 'Core Values', 'values-title': 'Why Choose Us',
+                'val1-title': 'Innovation', 'val1-desc': 'Continuously seeking innovative solutions to bring differentiated competitive advantages to your brand',
+                'val2-title': 'Flexibility', 'val2-desc': 'Providing customized service solutions based on your needs, adapting to various project scales',
+                'val3-title': 'Quality Assurance', 'val3-desc': 'Strict quality control system to ensure every product meets the highest standards',
+                'team-tag': 'Our Team', 'team-title': 'Professional Team',
+                'team1-name': 'Zhang Ming', 'team1-title': 'Founder & CEO', 'team1-desc': '15 years foreign trade experience',
+                'team2-name': 'Li Hua', 'team2-title': 'Sales Director', 'team2-desc': 'Global sales expert',
+                'team3-name': 'Wang Fang', 'team3-title': 'Supply Chain Manager', 'team3-desc': 'Supply chain management expert',
+                'team4-name': 'Zhao Qiang', 'team4-title': 'Customer Service Manager', 'team4-desc': 'Customer relationship expert',
+                'cta-title': 'Ready to Start Cooperation?', 'cta-desc': 'Contact us to learn more about how our services can help your business grow', 'cta-btn': 'Contact Us',
+                'footer-desc': 'Professional global trade solutions provider, helping you expand global markets and create business value.',
+                'footer-nav': 'Quick Links', 'footer-contact': 'Contact Us', 'footer-address': 'Pudong New Area, Shanghai, China', 'footer-follow': 'Follow Us', 'footer-rights': 'All rights reserved.'
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
+            document.getElementById('lang-dropdown').classList.add('hidden');
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        }
+
+        document.getElementById('lang-switcher').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('lang-dropdown').classList.toggle('hidden');
+        });
+        document.addEventListener('click', function() { document.getElementById('lang-dropdown').classList.add('hidden'); });
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+    </script>
+</body>
+</html>

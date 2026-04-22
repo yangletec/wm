@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心 - TradePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .btn-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); transition: all 0.3s ease; }
+        .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">T</span>
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold text-gray-800">TradePro</a>
+                </div>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-home">首页</a>
+                    <a href="solutions.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-solutions">解决方案</a>
+                    <a href="products.html" class="nav-link font-medium text-blue-600" data-lang="nav-products">产品中心</a>
+                    <a href="cases.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-cases">客户案例</a>
+                    <a href="about.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-about">关于我们</a>
+                    <a href="contact.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-contact">联系我们</a>
+                </div>
+                <div class="hidden lg:flex items-center gap-4">
+                    <div class="relative">
+                        <button id="lang-switcher" class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 transition-colors">
+                            <i class="fa fa-globe text-gray-600"></i>
+                            <span id="current-lang" class="text-gray-700 font-medium">中文</span>
+                            <i class="fa fa-chevron-down text-gray-400 text-xs"></i>
+                        </button>
+                        <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1">
+                            <button onclick="switchLanguage('zh')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 text-sm">中文</button>
+                            <button onclick="switchLanguage('en')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 text-sm">English</button>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn-gradient px-5 py-2.5 rounded-lg font-medium text-white" data-lang="nav-contact-btn">联系我们</a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-600"><i class="fa fa-bars text-xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex flex-col gap-3">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-home">首页</a>
+                    <a href="solutions.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-solutions">解决方案</a>
+                    <a href="products.html" class="font-medium text-blue-600 py-2" data-lang="nav-products">产品中心</a>
+                    <a href="cases.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-cases">客户案例</a>
+                    <a href="about.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-about">关于我们</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-contact">联系我们</a>
+                    <div class="flex items-center gap-4 pt-3 border-t">
+                        <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
+                        <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl">
+                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase" data-lang="page-tag">产品中心</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6" data-lang="page-title">热门产品</h1>
+                <p class="text-xl text-blue-100" data-lang="page-desc">我们提供多种高品质产品，满足全球客户的不同需求</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-4 justify-center mb-12">
+                <button class="filter-btn px-6 py-2 bg-blue-600 text-white rounded-full" data-filter="all" data-lang="filter-all">全部</button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" data-filter="electronics" data-lang="filter-electronics">消费电子</button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" data-filter="home" data-lang="filter-home">家居用品</button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" data-filter="outdoor" data-lang="filter-outdoor">户外用品</button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" data-filter="gifts" data-lang="filter-gifts">商务礼品</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="electronics">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <i class="fa fa-mobile-phone text-6xl text-blue-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-blue-600 font-semibold" data-lang="cat-electronics">消费电子</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod1">智能手机</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod1-desc">高端智能手机，支持全球频段</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$599</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="electronics">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                        <i class="fa fa-laptop text-6xl text-purple-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-purple-600 font-semibold" data-lang="cat-electronics">消费电子</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod2">笔记本电脑</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod2-desc">高性能轻薄本，适合商务办公</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$899</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="electronics">
+                    <div class="h-48 bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center">
+                        <i class="fa fa-clock-o text-6xl text-indigo-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-indigo-600 font-semibold" data-lang="cat-electronics">消费电子</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod3">智能手表</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod3-desc">健康监测与运动追踪</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$299</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="home">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                        <i class="fa fa-cutlery text-6xl text-green-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-green-600 font-semibold" data-lang="cat-home">家居用品</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod4">厨房电器</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod4-desc">智能厨房电器套装</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$399</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="home">
+                    <div class="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
+                        <i class="fa fa-snowflake-o text-6xl text-yellow-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-yellow-600 font-semibold" data-lang="cat-home">家居用品</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod5">冰箱</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod5-desc">节能大容量冰箱</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$1299</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="outdoor">
+                    <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                        <i class="fa fa-free-code-camp text-6xl text-orange-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-orange-600 font-semibold" data-lang="cat-outdoor">户外用品</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod6">露营装备</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod6-desc">专业露营设备套装</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$599</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="gifts">
+                    <div class="h-48 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+                        <i class="fa fa-gift text-6xl text-pink-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-pink-600 font-semibold" data-lang="cat-gifts">商务礼品</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod7">定制礼品</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod7-desc">品牌定制礼品套装</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$199</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card card-hover bg-white rounded-xl overflow-hidden" data-category="gifts">
+                    <div class="h-48 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center">
+                        <i class="fa fa-briefcase text-6xl text-red-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-red-600 font-semibold" data-lang="cat-gifts">商务礼品</span>
+                        <h3 class="font-bold text-gray-900 mt-2 mb-2" data-lang="prod8">商务背包</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-lang="prod8-desc">高品质商务背包</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$129</span>
+                            <a href="contact.html" class="text-sm text-blue-600 font-semibold hover:text-blue-800" data-lang="inquiry">询价</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-lang="cta-title">需要更多产品信息？</h2>
+            <p class="text-gray-400 mb-8 max-w-2xl mx-auto" data-lang="cta-desc">联系我们，获取完整的产品目录和定制报价</p>
+            <a href="contact.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white inline-flex items-center gap-2" data-lang="cta-btn">联系我们 <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">T</span>
+                        </div>
+                        <span class="text-xl font-bold">TradePro</span>
+                    </div>
+                    <p class="text-gray-400" data-lang="footer-desc">专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footer-nav">快速导航</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-home">首页</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-solutions">解决方案</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-products">产品中心</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-about">关于我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footer-contact">联系我们</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa fa-map-marker mr-2"></i> <span data-lang="footer-address">中国上海市浦东新区</span></li>
+                        <li><i class="fa fa-phone mr-2"></i> +86 123 4567 8910</li>
+                        <li><i class="fa fa-envelope mr-2"></i> info@tradepro.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4" data-lang="footer-follow">关注我们</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 TradePro. <span data-lang="footer-rights">保留所有权利.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            zh: {
+                'nav-home': '首页', 'nav-solutions': '解决方案', 'nav-products': '产品中心', 'nav-cases': '客户案例', 'nav-about': '关于我们', 'nav-contact': '联系我们', 'nav-contact-btn': '联系我们',
+                'page-tag': '产品中心', 'page-title': '热门产品', 'page-desc': '我们提供多种高品质产品，满足全球客户的不同需求',
+                'filter-all': '全部', 'filter-electronics': '消费电子', 'filter-home': '家居用品', 'filter-outdoor': '户外用品', 'filter-gifts': '商务礼品',
+                'cat-electronics': '消费电子', 'cat-home': '家居用品', 'cat-outdoor': '户外用品', 'cat-gifts': '商务礼品',
+                'prod1': '智能手机', 'prod1-desc': '高端智能手机，支持全球频段',
+                'prod2': '笔记本电脑', 'prod2-desc': '高性能轻薄本，适合商务办公',
+                'prod3': '智能手表', 'prod3-desc': '健康监测与运动追踪',
+                'prod4': '厨房电器', 'prod4-desc': '智能厨房电器套装',
+                'prod5': '冰箱', 'prod5-desc': '节能大容量冰箱',
+                'prod6': '露营装备', 'prod6-desc': '专业露营设备套装',
+                'prod7': '定制礼品', 'prod7-desc': '品牌定制礼品套装',
+                'prod8': '商务背包', 'prod8-desc': '高品质商务背包',
+                'inquiry': '询价',
+                'cta-title': '需要更多产品信息？', 'cta-desc': '联系我们，获取完整的产品目录和定制报价', 'cta-btn': '联系我们',
+                'footer-desc': '专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。',
+                'footer-nav': '快速导航', 'footer-contact': '联系我们', 'footer-address': '中国上海市浦东新区', 'footer-follow': '关注我们', 'footer-rights': '保留所有权利.'
+            },
+            en: {
+                'nav-home': 'Home', 'nav-solutions': 'Solutions', 'nav-products': 'Products', 'nav-cases': 'Cases', 'nav-about': 'About Us', 'nav-contact': 'Contact', 'nav-contact-btn': 'Contact Us',
+                'page-tag': 'Products', 'page-title': 'Popular Products', 'page-desc': 'We provide a variety of high-quality products to meet the different needs of global customers',
+                'filter-all': 'All', 'filter-electronics': 'Electronics', 'filter-home': 'Home Goods', 'filter-outdoor': 'Outdoor', 'filter-gifts': 'Gifts',
+                'cat-electronics': 'Electronics', 'cat-home': 'Home Goods', 'cat-outdoor': 'Outdoor', 'cat-gifts': 'Gifts',
+                'prod1': 'Smartphones', 'prod1-desc': 'High-end smartphones with global band support',
+                'prod2': 'Laptops', 'prod2-desc': 'High-performance thin laptops for business',
+                'prod3': 'Smart Watches', 'prod3-desc': 'Health monitoring and fitness tracking',
+                'prod4': 'Kitchen Appliances', 'prod4-desc': 'Smart kitchen appliance sets',
+                'prod5': 'Refrigerators', 'prod5-desc': 'Energy-efficient large capacity refrigerators',
+                'prod6': 'Camping Gear', 'prod6-desc': 'Professional camping equipment sets',
+                'prod7': 'Custom Gifts', 'prod7-desc': 'Brand custom gift sets',
+                'prod8': 'Business Backpacks', 'prod8-desc': 'High-quality business backpacks',
+                'inquiry': 'Inquiry',
+                'cta-title': 'Need More Product Information?', 'cta-desc': 'Contact us for the complete product catalog and custom quotes', 'cta-btn': 'Contact Us',
+                'footer-desc': 'Professional global trade solutions provider, helping you expand global markets and create business value.',
+                'footer-nav': 'Quick Links', 'footer-contact': 'Contact Us', 'footer-address': 'Pudong New Area, Shanghai, China', 'footer-follow': 'Follow Us', 'footer-rights': 'All rights reserved.'
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
+            document.getElementById('lang-dropdown').classList.add('hidden');
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        }
+
+        document.getElementById('lang-switcher').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('lang-dropdown').classList.toggle('hidden');
+        });
+        document.addEventListener('click', function() { document.getElementById('lang-dropdown').classList.add('hidden'); });
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+    </script>
+</body>
+</html>
