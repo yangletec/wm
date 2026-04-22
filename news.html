@@ -164,12 +164,32 @@
             
             const colors = ['blue', 'purple', 'green', 'orange'];
             
+            const newsLinks = {
+                zh: [
+                    'article/20260420-company-award.html',
+                    'article/20260415-trade-trends.html',
+                    'article/20260410-canton-fair.html',
+                    'article/20260405-anniversary.html',
+                    'article/20260328-southeast-asia.html',
+                    'article/20260320-strategic-cooperation.html'
+                ],
+                en: [
+                    'article/20260420-company-award-en.html',
+                    'article/20260415-trade-trends-en.html',
+                    'article/20260410-canton-fair-en.html',
+                    'article/20260405-anniversary-en.html',
+                    'article/20260328-southeast-asia-en.html',
+                    'article/20260320-strategic-cooperation-en.html'
+                ]
+            };
+            
             news.forEach((item, index) => {
                 const newsCard = document.createElement('div');
                 newsCard.className = 'news-card card-hover bg-white rounded-xl overflow-hidden';
                 newsCard.setAttribute('data-category', item.category);
                 
                 const color = colors[index % colors.length];
+                const link = newsLinks[currentLang][index];
                 
                 newsCard.innerHTML = `
                     <div class="h-48 bg-${color}-600 flex items-center justify-center">
@@ -182,7 +202,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
                         <p class="text-gray-600 mb-4">${item.desc}</p>
-                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all">阅读更多 <i class="fa fa-arrow-right"></i></a>
+                        <a href="${link}" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all">${currentLang === 'zh' ? '阅读更多' : 'Read more'} <i class="fa fa-arrow-right"></i></a>
                     </div>
                 `;
                 grid.appendChild(newsCard);
