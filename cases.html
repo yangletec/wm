@@ -6,6 +6,7 @@
     <title>客户案例 - TradePro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="config.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
@@ -25,15 +26,7 @@
                     </div>
                     <a href="index.html" class="text-2xl font-bold text-gray-800">TradePro</a>
                 </div>
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="index.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="nav-link font-medium text-blue-600" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-contact">联系我们</a>
-                </div>
+                <div class="hidden lg:flex items-center gap-8" id="main-nav"></div>
                 <div class="hidden lg:flex items-center gap-4">
                     <div class="relative">
                         <button id="lang-switcher" class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 transition-colors">
@@ -53,254 +46,178 @@
         </div>
         <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
             <div class="container mx-auto px-4 py-4">
-                <div class="flex flex-col gap-3">
-                    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="font-medium text-blue-600 py-2" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-contact">联系我们</a>
-                    <div class="flex items-center gap-4 pt-3 border-t">
-                        <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
-                        <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
-                    </div>
-                </div>
+                <div class="flex flex-col gap-3" id="mobile-nav"></div>
             </div>
         </div>
     </nav>
 
     <section class="pt-32 pb-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl">
-                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase" data-lang="page-tag">客户案例</span>
-                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6" data-lang="page-title">他们与我们合作</h1>
-                <p class="text-xl text-blue-100" data-lang="page-desc">了解全球知名品牌为何选择与我们合作</p>
-            </div>
+            <div class="max-w-3xl" id="page-header"></div>
         </div>
     </section>
 
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card-hover bg-gray-50 rounded-2xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-6xl font-bold">J</span>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full" data-lang="tag-electronics">消费电子</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-full" data-lang="tag-europe">欧洲市场</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="case1-title">TechCorp 欧洲市场拓展</h3>
-                        <p class="text-gray-600 mb-6" data-lang="case1-desc">帮助TechCorp成功进入欧洲市场，年销售额增长200%。</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center font-bold text-white">J</div>
-                            <div>
-                                <div class="font-semibold text-gray-900">John Smith</div>
-                                <div class="text-gray-500 text-sm">CEO, TechCorp</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-hover bg-gray-50 rounded-2xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                        <span class="text-white text-6xl font-bold">G</span>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs rounded-full" data-lang="tag-home">家居用品</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs rounded-full" data-lang="tag-asia">亚洲市场</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="case2-title">GlobalMart 供应链优化</h3>
-                        <p class="text-gray-600 mb-6" data-lang="case2-desc">优化供应链管理，降低成本25%，提高配送效率40%。</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center font-bold text-white">L</div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Li Ming</div>
-                                <div class="text-gray-500 text-sm">采购总监, GlobalMart</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-hover bg-gray-50 rounded-2xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-                        <span class="text-white text-6xl font-bold">B</span>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs rounded-full" data-lang="tag-gifts">商务礼品</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full" data-lang="tag-americas">美洲市场</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="case3-title">BrandVision 品牌定制</h3>
-                        <p class="text-gray-600 mb-6" data-lang="case3-desc">提供定制礼品方案，客户满意度提升至98%。</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center font-bold text-white">M</div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Maria Garcia</div>
-                                <div class="text-gray-500 text-sm">创始人, BrandVision</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-hover bg-gray-50 rounded-2xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center">
-                        <span class="text-white text-6xl font-bold">S</span>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full" data-lang="tag-electronics">消费电子</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-600 text-xs rounded-full" data-lang="tag-global">全球市场</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="case4-title">SmartLife 产品定制</h3>
-                        <p class="text-gray-600 mb-6" data-lang="case4-desc">为其智能家居产品线提供定制生产服务。</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center font-bold text-white">S</div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Sarah Chen</div>
-                                <div class="text-gray-500 text-sm">产品总监, SmartLife</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-hover bg-gray-50 rounded-2xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
-                        <span class="text-white text-6xl font-bold">E</span>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs rounded-full" data-lang="tag-outdoor">户外用品</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-full" data-lang="tag-europe">欧洲市场</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="case5-title">EcoAdventure 绿色产品</h3>
-                        <p class="text-gray-600 mb-6" data-lang="case5-desc">环保材料认证，助力品牌获得欧盟市场准入。</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center font-bold text-white">E</div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Erik Muller</div>
-                                <div class="text-gray-500 text-sm">CEO, EcoAdventure</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-hover bg-gray-50 rounded-2xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                        <span class="text-white text-6xl font-bold">A</span>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex gap-2 mb-4">
-                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs rounded-full" data-lang="tag-home">家居用品</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs rounded-full" data-lang="tag-middle-east">中东市场</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="case6-title">ArtLiving 品质认证</h3>
-                        <p class="text-gray-600 mb-6" data-lang="case6-desc">通过ISO认证，成功进入中东高端家居市场。</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center font-bold text-white">A</div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Ahmed Hassan</div>
-                                <div class="text-gray-500 text-sm">运营总监, ArtLiving</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="cases-grid"></div>
         </div>
     </section>
 
     <section class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-lang="cta-title">成为下一个成功案例</h2>
-            <p class="text-gray-400 mb-8 max-w-2xl mx-auto" data-lang="cta-desc">联系我们，了解如何像这些客户一样实现业务增长</p>
-            <a href="contact.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white inline-flex items-center gap-2" data-lang="cta-btn">开始合作 <i class="fa fa-arrow-right"></i></a>
-        </div>
+        <div class="container mx-auto px-4 text-center" id="cta-content"></div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">T</span>
-                        </div>
-                        <span class="text-xl font-bold">TradePro</span>
-                    </div>
-                    <p class="text-gray-400" data-lang="footer-desc">专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-nav">快速导航</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-home">首页</a></li>
-                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-solutions">解决方案</a></li>
-                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-products">产品中心</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-about">关于我们</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-contact">联系我们</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fa fa-map-marker mr-2"></i> <span data-lang="footer-address">中国上海市浦东新区</span></li>
-                        <li><i class="fa fa-phone mr-2"></i> +86 123 4567 8910</li>
-                        <li><i class="fa fa-envelope mr-2"></i> info@tradepro.com</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-follow">关注我们</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2026 TradePro. <span data-lang="footer-rights">保留所有权利.</span></p>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-gray-900 text-white py-12" id="footer-content"></footer>
 
     <script>
-        const translations = {
-            zh: {
-                'nav-home': '首页', 'nav-solutions': '解决方案', 'nav-products': '产品中心', 'nav-cases': '客户案例', 'nav-news': '新闻中心', 'nav-about': '关于我们', 'nav-contact': '联系我们', 'nav-contact-btn': '联系我们',
-                'page-tag': '客户案例', 'page-title': '他们与我们合作', 'page-desc': '了解全球知名品牌为何选择与我们合作',
-                'tag-electronics': '消费电子', 'tag-home': '家居用品', 'tag-gifts': '商务礼品', 'tag-outdoor': '户外用品',
-                'tag-europe': '欧洲市场', 'tag-asia': '亚洲市场', 'tag-americas': '美洲市场', 'tag-global': '全球市场', 'tag-middle-east': '中东市场',
-                'case1-title': 'TechCorp 欧洲市场拓展', 'case1-desc': '帮助TechCorp成功进入欧洲市场，年销售额增长200%。',
-                'case2-title': 'GlobalMart 供应链优化', 'case2-desc': '优化供应链管理，降低成本25%，提高配送效率40%。',
-                'case3-title': 'BrandVision 品牌定制', 'case3-desc': '提供定制礼品方案，客户满意度提升至98%。',
-                'case4-title': 'SmartLife 产品定制', 'case4-desc': '为其智能家居产品线提供定制生产服务。',
-                'case5-title': 'EcoAdventure 绿色产品', 'case5-desc': '环保材料认证，助力品牌获得欧盟市场准入。',
-                'case6-title': 'ArtLiving 品质认证', 'case6-desc': '通过ISO认证，成功进入中东高端家居市场。',
-                'cta-title': '成为下一个成功案例', 'cta-desc': '联系我们，了解如何像这些客户一样实现业务增长', 'cta-btn': '开始合作',
-                'footer-desc': '专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。',
-                'footer-nav': '快速导航', 'footer-contact': '联系我们', 'footer-address': '中国上海市浦东新区', 'footer-follow': '关注我们', 'footer-rights': '保留所有权利.'
-            },
-            en: {
-                'nav-home': 'Home', 'nav-solutions': 'Solutions', 'nav-products': 'Products', 'nav-cases': 'Cases', 'nav-news': 'News', 'nav-about': 'About Us', 'nav-contact': 'Contact', 'nav-contact-btn': 'Contact Us',
-                'page-tag': 'Case Studies', 'page-title': 'They Work With Us', 'page-desc': 'Learn why global brands choose to work with us',
-                'tag-electronics': 'Electronics', 'tag-home': 'Home Goods', 'tag-gifts': 'Gifts', 'tag-outdoor': 'Outdoor',
-                'tag-europe': 'Europe', 'tag-asia': 'Asia', 'tag-americas': 'Americas', 'tag-global': 'Global', 'tag-middle-east': 'Middle East',
-                'case1-title': 'TechCorp Europe Expansion', 'case1-desc': 'Helped TechCorp successfully enter the European market with 200% sales growth.',
-                'case2-title': 'GlobalMart Supply Chain Optimization', 'case2-desc': 'Optimized supply chain management, reducing costs by 25% and improving delivery efficiency by 40%.',
-                'case3-title': 'BrandVision Custom Gifts', 'case3-desc': 'Provided custom gift solutions, increasing customer satisfaction to 98%.',
-                'case4-title': 'SmartLife Custom Products', 'case4-desc': 'Provided custom production services for their smart home product line.',
-                'case5-title': 'EcoAdventure Green Products', 'case5-desc': 'Eco-friendly material certification, helping the brand gain EU market access.',
-                'case6-title': 'ArtLiving Quality Certification', 'case6-desc': 'ISO certification achieved, successfully entering the Middle East premium home market.',
-                'cta-title': 'Be the Next Success Story', 'cta-desc': 'Contact us to learn how to grow your business like these customers', 'cta-btn': 'Start Cooperation',
-                'footer-desc': 'Professional global trade solutions provider, helping you expand global markets and create business value.',
-                'footer-nav': 'Quick Links', 'footer-contact': 'Contact Us', 'footer-address': 'Pudong New Area, Shanghai, China', 'footer-follow': 'Follow Us', 'footer-rights': 'All rights reserved.'
-            }
-        };
+        let currentLang = 'zh';
+
+        function updateNavigation() {
+            const mainNav = document.getElementById('main-nav');
+            const mobileNav = document.getElementById('mobile-nav');
+            const navItems = siteConfig.navigation[currentLang];
+            
+            mainNav.innerHTML = '';
+            navItems.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.className = `nav-link font-medium ${item.id === 'cases' ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600 transition-colors'}`;
+                a.textContent = item.name;
+                mainNav.appendChild(a);
+            });
+            
+            mobileNav.innerHTML = '';
+            navItems.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.className = `font-medium ${item.id === 'cases' ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'} py-2`;
+                a.textContent = item.name;
+                mobileNav.appendChild(a);
+            });
+            
+            const langDiv = document.createElement('div');
+            langDiv.className = 'flex items-center gap-4 pt-3 border-t';
+            langDiv.innerHTML = `
+                <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
+                <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
+            `;
+            mobileNav.appendChild(langDiv);
+        }
+
+        function updatePageHeader() {
+            const header = document.getElementById('page-header');
+            const content = siteConfig.cases[currentLang].page;
+            header.innerHTML = `
+                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase">${content.tag}</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6">${content.title}</h1>
+                <p class="text-xl text-blue-100">${content.desc}</p>
+            `;
+        }
+
+        function updateCases() {
+            const grid = document.getElementById('cases-grid');
+            const cases = siteConfig.cases[currentLang].items;
+            grid.innerHTML = '';
+            
+            const colors = ['blue', 'purple', 'green', 'orange'];
+            
+            cases.forEach((item, index) => {
+                const caseCard = document.createElement('div');
+                caseCard.className = 'card-hover bg-gray-50 rounded-2xl overflow-hidden';
+                
+                const color = colors[index % colors.length];
+                const initial = item.title.split(' ')[0][0];
+                
+                caseCard.innerHTML = `
+                    <div class="h-48 bg-${color}-600 flex items-center justify-center">
+                        <span class="text-white text-6xl font-bold">${initial}</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            ${item.tags.map(tag => `<span class="px-3 py-1 bg-${color}-100 text-${color}-600 text-xs rounded-full">${tag}</span>`).join('')}
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
+                        <p class="text-gray-600 mb-6">${item.desc}</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-${color}-500 rounded-full flex items-center justify-center font-bold text-white">${initial}</div>
+                            <div>
+                                <div class="font-semibold text-gray-900">客户</div>
+                                <div class="text-gray-500 text-sm">全球合作伙伴</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(caseCard);
+            });
+        }
+
+        function updateCta() {
+            const cta = document.getElementById('cta-content');
+            const content = siteConfig.cases[currentLang].cta;
+            cta.innerHTML = `
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">${content.title}</h2>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">${content.description}</p>
+                <a href="contact.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white inline-flex items-center gap-2">${content.button} <i class="fa fa-arrow-right"></i></a>
+            `;
+        }
+
+        function updateFooter() {
+            const footer = document.getElementById('footer-content');
+            const content = siteConfig.footer[currentLang];
+            footer.innerHTML = `
+                <div class="container mx-auto px-4">
+                    <div class="grid md:grid-cols-4 gap-12 mb-12">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-lg">${siteConfig.site.logo.icon}</span>
+                                </div>
+                                <span class="text-xl font-bold">${siteConfig.site.name}</span>
+                            </div>
+                            <p class="text-gray-400">${content.description}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.quickLinks.title}</h4>
+                            <ul class="space-y-2">
+                                ${content.quickLinks.links.map(link => `<li><a href="${link.url}" class="text-gray-400 hover:text-white transition-colors">${link.name}</a></li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.contact.title}</h4>
+                            <ul class="space-y-2 text-gray-400">
+                                <li><i class="fa fa-map-marker mr-2"></i> ${content.contact.address}</li>
+                                <li><i class="fa fa-phone mr-2"></i> ${content.contact.phone}</li>
+                                <li><i class="fa fa-envelope mr-2"></i> ${content.contact.email}</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.follow.title}</h4>
+                            <div class="flex gap-4">
+                                ${content.follow.social.map(social => `<a href="${social.url}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa ${social.icon}"></i></a>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                        <p>&copy; 2026 ${siteConfig.site.name}. ${content.rights}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateContent() {
+            updateNavigation();
+            updatePageHeader();
+            updateCases();
+            updateCta();
+            updateFooter();
+        }
 
         function switchLanguage(lang) {
-            document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
+            currentLang = lang;
+            updateContent();
+            document.getElementById('current-lang').textContent = currentLang === 'zh' ? '中文' : 'English';
             document.getElementById('lang-dropdown').classList.add('hidden');
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (translations[lang][key]) el.innerHTML = translations[lang][key];
-            });
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
         }
 
         document.getElementById('lang-switcher').addEventListener('click', function(e) {
@@ -309,6 +226,9 @@
         });
         document.addEventListener('click', function() { document.getElementById('lang-dropdown').classList.add('hidden'); });
         document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+
+        // Initialize
+        updateContent();
     </script>
 </body>
 </html>

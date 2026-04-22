@@ -6,6 +6,7 @@
     <title>联系我们 - TradePro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="config.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
@@ -24,15 +25,7 @@
                     </div>
                     <a href="index.html" class="text-2xl font-bold text-gray-800">TradePro</a>
                 </div>
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="index.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="nav-link font-medium text-blue-600" data-lang="nav-contact">联系我们</a>
-                </div>
+                <div class="hidden lg:flex items-center gap-8" id="main-nav"></div>
                 <div class="hidden lg:flex items-center gap-4">
                     <div class="relative">
                         <button id="lang-switcher" class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 transition-colors">
@@ -52,223 +45,207 @@
         </div>
         <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
             <div class="container mx-auto px-4 py-4">
-                <div class="flex flex-col gap-3">
-                    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="font-medium text-blue-600 py-2" data-lang="nav-contact">联系我们</a>
-                    <div class="flex items-center gap-4 pt-3 border-t">
-                        <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
-                        <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
-                    </div>
-                </div>
+                <div class="flex flex-col gap-3" id="mobile-nav"></div>
             </div>
         </div>
     </nav>
 
     <section class="pt-32 pb-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl">
-                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase" data-lang="page-tag">联系我们</span>
-                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6" data-lang="page-title">开始合作</h1>
-                <p class="text-xl text-blue-100" data-lang="page-desc">我们期待与您建立联系，为您提供专业的贸易解决方案</p>
-            </div>
+            <div class="max-w-3xl" id="page-header"></div>
         </div>
     </section>
 
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6" data-lang="info-title">联系信息</h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa fa-map-marker text-xl text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1" data-lang="info-address-title">地址</h3>
-                                <p class="text-gray-600" data-lang="info-address">中国上海市浦东新区</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa fa-phone text-xl text-green-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1" data-lang="info-phone-title">电话</h3>
-                                <p class="text-gray-600">+86 123 4567 8910</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa fa-envelope text-xl text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1" data-lang="info-email-title">邮箱</h3>
-                                <p class="text-gray-600">info@tradepro.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa fa-clock-o text-xl text-orange-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-1" data-lang="info-hours-title">工作时间</h3>
-                                <p class="text-gray-600" data-lang="info-hours">周一至周五: 9:00 - 18:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-10">
-                        <h3 class="font-bold text-gray-900 mb-4" data-lang="follow-title">关注我们</h3>
-                        <div class="flex gap-4">
-                            <a href="#" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-gray-600">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-400 hover:text-white transition-colors text-gray-600">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-700 hover:text-white transition-colors text-gray-600">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6" data-lang="form-title">发送消息</h2>
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-gray-700 mb-2 font-medium" data-lang="form-name-label">姓名</label>
-                                <input type="text" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="" data-lang-placeholder="form-name-placeholder">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2 font-medium" data-lang="form-email-label">邮箱</label>
-                                <input type="email" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="" data-lang-placeholder="form-email-placeholder">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium" data-lang="form-phone-label">电话</label>
-                            <input type="tel" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="" data-lang-placeholder="form-phone-placeholder">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium" data-lang="form-subject-label">主题</label>
-                            <input type="text" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="" data-lang-placeholder="form-subject-placeholder">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium" data-lang="form-message-label">消息</label>
-                            <textarea rows="5" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="" data-lang-placeholder="form-message-placeholder"></textarea>
-                        </div>
-                        <button type="submit" class="btn-gradient w-full px-6 py-4 rounded-lg font-semibold text-white" data-lang="form-submit">发送消息</button>
-                    </form>
-                </div>
-            </div>
+            <div class="grid lg:grid-cols-2 gap-16" id="contact-content"></div>
         </div>
     </section>
 
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
-                <p class="text-gray-500" data-lang="map-text">地图加载中...</p>
-            </div>
+            <div class="bg-gray-200 rounded-xl h-64 flex items-center justify-center" id="map-content"></div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">T</span>
-                        </div>
-                        <span class="text-xl font-bold">TradePro</span>
-                    </div>
-                    <p class="text-gray-400" data-lang="footer-desc">专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-nav">快速导航</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-home">首页</a></li>
-                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-solutions">解决方案</a></li>
-                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-products">产品中心</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-about">关于我们</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-contact">联系我们</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fa fa-map-marker mr-2"></i> <span data-lang="footer-address">中国上海市浦东新区</span></li>
-                        <li><i class="fa fa-phone mr-2"></i> +86 123 4567 8910</li>
-                        <li><i class="fa fa-envelope mr-2"></i> info@tradepro.com</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-follow">关注我们</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2026 TradePro. <span data-lang="footer-rights">保留所有权利.</span></p>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-gray-900 text-white py-12" id="footer-content"></footer>
 
     <script>
-        const translations = {
-            zh: {
-                'nav-home': '首页', 'nav-solutions': '解决方案', 'nav-products': '产品中心', 'nav-cases': '客户案例', 'nav-news': '新闻中心', 'nav-about': '关于我们', 'nav-contact': '联系我们', 'nav-contact-btn': '联系我们',
-                'page-tag': '联系我们', 'page-title': '开始合作', 'page-desc': '我们期待与您建立联系，为您提供专业的贸易解决方案',
-                'info-title': '联系信息', 'info-address-title': '地址', 'info-address': '中国上海市浦东新区',
-                'info-phone-title': '电话', 'info-email-title': '邮箱', 'info-hours-title': '工作时间', 'info-hours': '周一至周五: 9:00 - 18:00',
-                'follow-title': '关注我们',
-                'form-title': '发送消息', 'form-name-label': '姓名', 'form-name-placeholder': '您的姓名',
-                'form-email-label': '邮箱', 'form-email-placeholder': '您的邮箱',
-                'form-phone-label': '电话', 'form-phone-placeholder': '您的电话',
-                'form-subject-label': '主题', 'form-subject-placeholder': '消息主题',
-                'form-message-label': '消息', 'form-message-placeholder': '请输入您的消息',
-                'form-submit': '发送消息',
-                'map-text': '地图加载中...',
-                'footer-desc': '专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。',
-                'footer-nav': '快速导航', 'footer-contact': '联系我们', 'footer-address': '中国上海市浦东新区', 'footer-follow': '关注我们', 'footer-rights': '保留所有权利.'
-            },
-            en: {
-                'nav-home': 'Home', 'nav-solutions': 'Solutions', 'nav-products': 'Products', 'nav-cases': 'Cases', 'nav-news': 'News', 'nav-about': 'About Us', 'nav-contact': 'Contact', 'nav-contact-btn': 'Contact Us',
-                'page-tag': 'Contact', 'page-title': 'Start Cooperation', 'page-desc': 'We look forward to hearing from you and providing professional trade solutions',
-                'info-title': 'Contact Information', 'info-address-title': 'Address', 'info-address': 'Pudong New Area, Shanghai, China',
-                'info-phone-title': 'Phone', 'info-email-title': 'Email', 'info-hours-title': 'Business Hours', 'info-hours': 'Monday - Friday: 9:00 - 18:00',
-                'follow-title': 'Follow Us',
-                'form-title': 'Send Message', 'form-name-label': 'Name', 'form-name-placeholder': 'Your name',
-                'form-email-label': 'Email', 'form-email-placeholder': 'Your email',
-                'form-phone-label': 'Phone', 'form-phone-placeholder': 'Your phone',
-                'form-subject-label': 'Subject', 'form-subject-placeholder': 'Message subject',
-                'form-message-label': 'Message', 'form-message-placeholder': 'Please enter your message',
-                'form-submit': 'Send Message',
-                'map-text': 'Loading map...',
-                'footer-desc': 'Professional global trade solutions provider, helping you expand global markets and create business value.',
-                'footer-nav': 'Quick Links', 'footer-contact': 'Contact Us', 'footer-address': 'Pudong New Area, Shanghai, China', 'footer-follow': 'Follow Us', 'footer-rights': 'All rights reserved.'
-            }
-        };
+        let currentLang = 'zh';
+
+        function updateNavigation() {
+            const mainNav = document.getElementById('main-nav');
+            const mobileNav = document.getElementById('mobile-nav');
+            const navItems = siteConfig.navigation[currentLang];
+            
+            mainNav.innerHTML = '';
+            navItems.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.className = `nav-link font-medium ${item.id === 'contact' ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600 transition-colors'}`;
+                a.textContent = item.name;
+                mainNav.appendChild(a);
+            });
+            
+            mobileNav.innerHTML = '';
+            navItems.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.className = `font-medium ${item.id === 'contact' ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'} py-2`;
+                a.textContent = item.name;
+                mobileNav.appendChild(a);
+            });
+            
+            const langDiv = document.createElement('div');
+            langDiv.className = 'flex items-center gap-4 pt-3 border-t';
+            langDiv.innerHTML = `
+                <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
+                <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
+            `;
+            mobileNav.appendChild(langDiv);
+        }
+
+        function updatePageHeader() {
+            const header = document.getElementById('page-header');
+            const content = siteConfig.contact[currentLang].header;
+            header.innerHTML = `
+                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase">${content.tag}</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6">${content.title}</h1>
+                <p class="text-xl text-blue-100">${content.description}</p>
+            `;
+        }
+
+        function updateContactContent() {
+            const content = document.getElementById('contact-content');
+            const contact = siteConfig.contact[currentLang];
+            content.innerHTML = `
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">${contact.info.title}</h2>
+                    <div class="space-y-6">
+                        ${contact.info.items.map(item => `
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 ${item.icon.bg} rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fa ${item.icon.class} text-xl ${item.icon.color}"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">${item.title}</h3>
+                                    <p class="text-gray-600">${item.content}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="mt-10">
+                        <h3 class="font-bold text-gray-900 mb-4">${contact.follow.title}</h3>
+                        <div class="flex gap-4">
+                            ${contact.follow.social.map(social => `
+                                <a href="${social.url}" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-gray-600">
+                                    <i class="fa ${social.icon}"></i>
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">${contact.form.title}</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">${contact.form.fields.name.label}</label>
+                                <input type="text" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="${contact.form.fields.name.placeholder}">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">${contact.form.fields.email.label}</label>
+                                <input type="email" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="${contact.form.fields.email.placeholder}">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">${contact.form.fields.phone.label}</label>
+                            <input type="tel" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="${contact.form.fields.phone.placeholder}">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">${contact.form.fields.subject.label}</label>
+                            <input type="text" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="${contact.form.fields.subject.placeholder}">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">${contact.form.fields.message.label}</label>
+                            <textarea rows="5" class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none" placeholder="${contact.form.fields.message.placeholder}"></textarea>
+                        </div>
+                        <button type="submit" class="btn-gradient w-full px-6 py-4 rounded-lg font-semibold text-white">${contact.form.submit}</button>
+                    </form>
+                </div>
+            `;
+            
+            // Add form submission handler
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert(currentLang === 'zh' ? '消息已发送，我们会尽快与您联系！' : 'Message sent! We will contact you soon.');
+                this.reset();
+            });
+        }
+
+        function updateMap() {
+            const map = document.getElementById('map-content');
+            const content = siteConfig.contact[currentLang].map;
+            map.innerHTML = `<p class="text-gray-500">${content.text}</p>`;
+        }
+
+        function updateFooter() {
+            const footer = document.getElementById('footer-content');
+            const content = siteConfig.footer[currentLang];
+            footer.innerHTML = `
+                <div class="container mx-auto px-4">
+                    <div class="grid md:grid-cols-4 gap-12 mb-12">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-lg">${siteConfig.site.logo.icon}</span>
+                                </div>
+                                <span class="text-xl font-bold">${siteConfig.site.name}</span>
+                            </div>
+                            <p class="text-gray-400">${content.description}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.quickLinks.title}</h4>
+                            <ul class="space-y-2">
+                                ${content.quickLinks.links.map(link => `<li><a href="${link.url}" class="text-gray-400 hover:text-white transition-colors">${link.name}</a></li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.contact.title}</h4>
+                            <ul class="space-y-2 text-gray-400">
+                                <li><i class="fa fa-map-marker mr-2"></i> ${content.contact.address}</li>
+                                <li><i class="fa fa-phone mr-2"></i> ${content.contact.phone}</li>
+                                <li><i class="fa fa-envelope mr-2"></i> ${content.contact.email}</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.follow.title}</h4>
+                            <div class="flex gap-4">
+                                ${content.follow.social.map(social => `<a href="${social.url}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa ${social.icon}"></i></a>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                        <p>&copy; 2026 ${siteConfig.site.name}. ${content.rights}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateContent() {
+            updateNavigation();
+            updatePageHeader();
+            updateContactContent();
+            updateMap();
+            updateFooter();
+        }
 
         function switchLanguage(lang) {
-            document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
+            currentLang = lang;
+            updateContent();
+            document.getElementById('current-lang').textContent = currentLang === 'zh' ? '中文' : 'English';
             document.getElementById('lang-dropdown').classList.add('hidden');
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (translations[lang][key]) el.innerHTML = translations[lang][key];
-            });
-            document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-lang-placeholder');
-                if (translations[lang][key]) el.placeholder = translations[lang][key];
-            });
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
         }
 
         document.getElementById('lang-switcher').addEventListener('click', function(e) {
@@ -278,12 +255,8 @@
         document.addEventListener('click', function() { document.getElementById('lang-dropdown').classList.add('hidden'); });
         document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
 
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const lang = document.documentElement.lang === 'zh-CN' ? 'zh' : 'en';
-            alert(lang === 'zh' ? '消息已发送，我们会尽快与您联系！' : 'Message sent! We will contact you soon.');
-            this.reset();
-        });
+        // Initialize
+        updateContent();
     </script>
 </body>
 </html>

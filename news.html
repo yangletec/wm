@@ -6,6 +6,7 @@
     <title>新闻中心 - TradePro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="config.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
@@ -25,15 +26,7 @@
                     </div>
                     <a href="index.html" class="text-2xl font-bold text-gray-800">TradePro</a>
                 </div>
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="index.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="nav-link font-medium text-blue-600" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-contact">联系我们</a>
-                </div>
+                <div class="hidden lg:flex items-center gap-8" id="main-nav"></div>
                 <div class="hidden lg:flex items-center gap-4">
                     <div class="relative">
                         <button id="lang-switcher" class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 transition-colors">
@@ -53,251 +46,234 @@
         </div>
         <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
             <div class="container mx-auto px-4 py-4">
-                <div class="flex flex-col gap-3">
-                    <a href="index.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="font-medium text-blue-600 py-2" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-contact">联系我们</a>
-                    <div class="flex items-center gap-4 pt-3 border-t">
-                        <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
-                        <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
-                    </div>
-                </div>
+                <div class="flex flex-col gap-3" id="mobile-nav"></div>
             </div>
         </div>
     </nav>
 
     <section class="pt-32 pb-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl">
-                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase" data-lang="page-tag">新闻中心</span>
-                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6" data-lang="page-title">公司新闻</h1>
-                <p class="text-xl text-blue-100" data-lang="page-desc">了解我们的最新动态和行业资讯</p>
-            </div>
+            <div class="max-w-3xl" id="page-header"></div>
         </div>
     </section>
 
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap gap-4 justify-center mb-12">
-                <button class="px-6 py-2 bg-blue-600 text-white rounded-full" data-filter="all" data-lang="filter-all">全部</button>
-                <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" data-filter="company" data-lang="filter-company">公司新闻</button>
-                <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" data-filter="industry" data-lang="filter-industry">行业资讯</button>
-                <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" data-filter="event" data-lang="filter-event">活动信息</button>
-            </div>
+            <div class="flex flex-wrap gap-4 justify-center mb-12" id="news-filters"></div>
         </div>
     </section>
 
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="news-card card-hover bg-white rounded-xl overflow-hidden" data-category="company">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                        <i class="fa fa-newspaper-o text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500" data-lang="news-date">2026-04-20</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full" data-lang="news-tag-company">公司新闻</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="news1-title">公司荣获年度最佳外贸企业奖</h3>
-                        <p class="text-gray-600 mb-4" data-lang="news1-desc">我们很荣幸地宣布，TradePro被评为2026年度最佳外贸企业，这是对我们团队努力的认可。</p>
-                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="news-read">阅读更多 <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="news-card card-hover bg-white rounded-xl overflow-hidden" data-category="industry">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                        <i class="fa fa-line-chart text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500" data-lang="news-date">2026-04-15</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-full" data-lang="news-tag-industry">行业资讯</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="news2-title">2026年全球贸易趋势分析</h3>
-                        <p class="text-gray-600 mb-4" data-lang="news2-desc">最新数据显示，全球贸易正在复苏，新兴市场成为增长的主要动力。</p>
-                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="news-read">阅读更多 <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="news-card card-hover bg-white rounded-xl overflow-hidden" data-category="event">
-                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <i class="fa fa-calendar text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500" data-lang="news-date">2026-04-10</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs rounded-full" data-lang="news-tag-event">活动信息</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="news3-title">参加2026年春季广交会</h3>
-                        <p class="text-gray-600 mb-4" data-lang="news3-desc">我们将参加2026年春季广交会，欢迎新老客户前来洽谈合作。</p>
-                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="news-read">阅读更多 <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="news-card card-hover bg-white rounded-xl overflow-hidden" data-category="company">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <i class="fa fa-users text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500" data-lang="news-date">2026-04-05</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full" data-lang="news-tag-company">公司新闻</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="news4-title">公司成立15周年庆典</h3>
-                        <p class="text-gray-600 mb-4" data-lang="news4-desc">TradePro迎来15周年华诞，感谢所有客户和合作伙伴的支持与信任。</p>
-                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="news-read">阅读更多 <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="news-card card-hover bg-white rounded-xl overflow-hidden" data-category="industry">
-                    <div class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-                        <i class="fa fa-globe text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500" data-lang="news-date">2026-03-28</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-full" data-lang="news-tag-industry">行业资讯</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="news5-title">东南亚市场贸易机会分析</h3>
-                        <p class="text-gray-600 mb-4" data-lang="news5-desc">东南亚市场正成为全球贸易的热点，我们为您分析最新的市场机会。</p>
-                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="news-read">阅读更多 <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="news-card card-hover bg-white rounded-xl overflow-hidden" data-category="event">
-                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                        <i class="fa fa-handshake-o text-6xl text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500" data-lang="news-date">2026-03-20</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs rounded-full" data-lang="news-tag-event">活动信息</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="news6-title">与欧洲客户签署战略合作协议</h3>
-                        <p class="text-gray-600 mb-4" data-lang="news6-desc">我们与欧洲知名品牌达成战略合作，共同开拓全球市场。</p>
-                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="news-read">阅读更多 <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-center mt-12">
-                <nav class="inline-flex rounded-md shadow">
-                    <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50" data-lang="page-prev">上一页</a>
-                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-blue-600 text-sm font-medium text-white">1</a>
-                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">2</a>
-                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">3</a>
-                    <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50" data-lang="page-next">下一页</a>
-                </nav>
-            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-grid"></div>
+            <div class="flex justify-center mt-12" id="news-pagination"></div>
         </div>
     </section>
 
     <section class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-lang="cta-title">订阅我们的新闻</h2>
-            <p class="text-gray-400 mb-8 max-w-2xl mx-auto" data-lang="cta-desc">获取最新的公司动态和行业资讯</p>
-            <div class="max-w-md mx-auto flex gap-2">
-                <input type="email" placeholder="" class="flex-1 px-4 py-3 rounded-lg focus:outline-none text-gray-800" data-lang-placeholder="subscribe-email">
-                <button class="btn-gradient px-6 py-3 rounded-lg font-semibold text-white" data-lang="subscribe-btn">订阅</button>
-            </div>
-        </div>
+        <div class="container mx-auto px-4 text-center" id="subscribe-content"></div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">T</span>
-                        </div>
-                        <span class="text-xl font-bold">TradePro</span>
-                    </div>
-                    <p class="text-gray-400" data-lang="footer-desc">专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-nav">快速导航</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-home">首页</a></li>
-                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-solutions">解决方案</a></li>
-                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-products">产品中心</a></li>
-                        <li><a href="news.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-news">新闻中心</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-contact">联系我们</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fa fa-map-marker mr-2"></i> <span data-lang="footer-address">中国上海市浦东新区</span></li>
-                        <li><i class="fa fa-phone mr-2"></i> +86 123 4567 8910</li>
-                        <li><i class="fa fa-envelope mr-2"></i> info@tradepro.com</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-follow">关注我们</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2026 TradePro. <span data-lang="footer-rights">保留所有权利.</span></p>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-gray-900 text-white py-12" id="footer-content"></footer>
 
     <script>
-        const translations = {
-            zh: {
-                'nav-home': '首页', 'nav-solutions': '解决方案', 'nav-products': '产品中心', 'nav-cases': '客户案例', 'nav-news': '新闻中心', 'nav-about': '关于我们', 'nav-contact': '联系我们', 'nav-contact-btn': '联系我们',
-                'page-tag': '新闻中心', 'page-title': '公司新闻', 'page-desc': '了解我们的最新动态和行业资讯',
-                'filter-all': '全部', 'filter-company': '公司新闻', 'filter-industry': '行业资讯', 'filter-event': '活动信息',
-                'news-date': '2026-04-20', 'news-tag-company': '公司新闻', 'news-tag-industry': '行业资讯', 'news-tag-event': '活动信息',
-                'news1-title': '公司荣获年度最佳外贸企业奖', 'news1-desc': '我们很荣幸地宣布，TradePro被评为2026年度最佳外贸企业，这是对我们团队努力的认可。',
-                'news2-title': '2026年全球贸易趋势分析', 'news2-desc': '最新数据显示，全球贸易正在复苏，新兴市场成为增长的主要动力。',
-                'news3-title': '参加2026年春季广交会', 'news3-desc': '我们将参加2026年春季广交会，欢迎新老客户前来洽谈合作。',
-                'news4-title': '公司成立15周年庆典', 'news4-desc': 'TradePro迎来15周年华诞，感谢所有客户和合作伙伴的支持与信任。',
-                'news5-title': '东南亚市场贸易机会分析', 'news5-desc': '东南亚市场正成为全球贸易的热点，我们为您分析最新的市场机会。',
-                'news6-title': '与欧洲客户签署战略合作协议', 'news6-desc': '我们与欧洲知名品牌达成战略合作，共同开拓全球市场。',
-                'news-read': '阅读更多',
-                'page-prev': '上一页', 'page-next': '下一页',
-                'cta-title': '订阅我们的新闻', 'cta-desc': '获取最新的公司动态和行业资讯',
-                'subscribe-email': '您的邮箱', 'subscribe-btn': '订阅',
-                'footer-desc': '专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。',
-                'footer-nav': '快速导航', 'footer-contact': '联系我们', 'footer-address': '中国上海市浦东新区', 'footer-follow': '关注我们', 'footer-rights': '保留所有权利.'
-            },
-            en: {
-                'nav-home': 'Home', 'nav-solutions': 'Solutions', 'nav-products': 'Products', 'nav-cases': 'Cases', 'nav-news': 'News', 'nav-about': 'About Us', 'nav-contact': 'Contact', 'nav-contact-btn': 'Contact Us',
-                'page-tag': 'News', 'page-title': 'Company News', 'page-desc': 'Stay updated with our latest news and industry insights',
-                'filter-all': 'All', 'filter-company': 'Company News', 'filter-industry': 'Industry News', 'filter-event': 'Events',
-                'news-date': '2026-04-20', 'news-tag-company': 'Company News', 'news-tag-industry': 'Industry News', 'news-tag-event': 'Events',
-                'news1-title': 'Company Wins Annual Best Foreign Trade Enterprise Award', 'news1-desc': 'We are proud to announce that TradePro has been named the Best Foreign Trade Enterprise of 2026, recognizing our team\'s efforts.',
-                'news2-title': '2026 Global Trade Trend Analysis', 'news2-desc': 'Latest data shows that global trade is recovering, with emerging markets driving growth.',
-                'news3-title': 'Participating in 2026 Spring Canton Fair', 'news3-desc': 'We will participate in the 2026 Spring Canton Fair. Welcome to visit us for business discussions.',
-                'news4-title': 'Company\'s 15th Anniversary Celebration', 'news4-desc': 'TradePro celebrates its 15th anniversary, thanking all customers and partners for their support and trust.',
-                'news5-title': 'Southeast Asia Market Trade Opportunity Analysis', 'news5-desc': 'Southeast Asia is becoming a hot spot for global trade. We analyze the latest market opportunities for you.',
-                'news6-title': 'Signing Strategic Cooperation Agreement with European Clients', 'news6-desc': 'We have reached strategic cooperation with well-known European brands to jointly explore global markets.',
-                'news-read': 'Read More',
-                'page-prev': 'Previous', 'page-next': 'Next',
-                'cta-title': 'Subscribe to Our News', 'cta-desc': 'Get the latest company updates and industry news',
-                'subscribe-email': 'Your email', 'subscribe-btn': 'Subscribe',
-                'footer-desc': 'Professional global trade solutions provider, helping you expand global markets and create business value.',
-                'footer-nav': 'Quick Links', 'footer-contact': 'Contact Us', 'footer-address': 'Pudong New Area, Shanghai, China', 'footer-follow': 'Follow Us', 'footer-rights': 'All rights reserved.'
-            }
-        };
+        let currentLang = 'zh';
+
+        function updateNavigation() {
+            const mainNav = document.getElementById('main-nav');
+            const mobileNav = document.getElementById('mobile-nav');
+            const navItems = siteConfig.navigation[currentLang];
+            
+            mainNav.innerHTML = '';
+            navItems.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.className = `nav-link font-medium ${item.id === 'news' ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600 transition-colors'}`;
+                a.textContent = item.name;
+                mainNav.appendChild(a);
+            });
+            
+            mobileNav.innerHTML = '';
+            navItems.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.className = `font-medium ${item.id === 'news' ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'} py-2`;
+                a.textContent = item.name;
+                mobileNav.appendChild(a);
+            });
+            
+            const langDiv = document.createElement('div');
+            langDiv.className = 'flex items-center gap-4 pt-3 border-t';
+            langDiv.innerHTML = `
+                <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
+                <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
+            `;
+            mobileNav.appendChild(langDiv);
+        }
+
+        function updatePageHeader() {
+            const header = document.getElementById('page-header');
+            const content = siteConfig.news[currentLang].page;
+            header.innerHTML = `
+                <span class="text-blue-200 font-semibold text-sm tracking-wider uppercase">${content.tag}</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6">${content.title}</h1>
+                <p class="text-xl text-blue-100">${content.desc}</p>
+            `;
+        }
+
+        function updateNewsFilters() {
+            const filters = document.getElementById('news-filters');
+            const filtersList = siteConfig.news[currentLang].filters;
+            filters.innerHTML = '';
+            
+            // Add filters
+            filtersList.forEach((filter, index) => {
+                const filterBtn = document.createElement('button');
+                filterBtn.className = `px-6 py-2 ${index === 0 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'} rounded-full hover:bg-gray-300`;
+                filterBtn.setAttribute('data-filter', filter.toLowerCase());
+                filterBtn.textContent = filter;
+                filters.appendChild(filterBtn);
+            });
+            
+            // Add filter functionality
+            document.querySelectorAll('#news-filters button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('#news-filters button').forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    this.classList.remove('bg-gray-200', 'text-gray-700');
+                    this.classList.add('bg-blue-600', 'text-white');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    document.querySelectorAll('.news-card').forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category').toLowerCase() === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        function updateNews() {
+            const grid = document.getElementById('news-grid');
+            const news = siteConfig.news[currentLang].items;
+            grid.innerHTML = '';
+            
+            const colors = ['blue', 'purple', 'green', 'orange'];
+            
+            news.forEach((item, index) => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'news-card card-hover bg-white rounded-xl overflow-hidden';
+                newsCard.setAttribute('data-category', item.category);
+                
+                const color = colors[index % colors.length];
+                
+                newsCard.innerHTML = `
+                    <div class="h-48 bg-${color}-600 flex items-center justify-center">
+                        <i class="fa fa-newspaper-o text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">${item.date}</span>
+                            <span class="px-3 py-1 bg-${color}-100 text-${color}-600 text-xs rounded-full">${item.category}</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
+                        <p class="text-gray-600 mb-4">${item.desc}</p>
+                        <a href="#" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all">阅读更多 <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                `;
+                grid.appendChild(newsCard);
+            });
+        }
+
+        function updatePagination() {
+            const pagination = document.getElementById('news-pagination');
+            pagination.innerHTML = `
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">上一页</a>
+                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-blue-600 text-sm font-medium text-white">1</a>
+                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">3</a>
+                    <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">下一页</a>
+                </nav>
+            `;
+        }
+
+        function updateSubscribe() {
+            const subscribe = document.getElementById('subscribe-content');
+            const content = siteConfig.news[currentLang].cta;
+            subscribe.innerHTML = `
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">${content.title}</h2>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">${content.desc}</p>
+                <div class="max-w-md mx-auto flex gap-2">
+                    <input type="email" placeholder="${content.placeholder}" class="flex-1 px-4 py-3 rounded-lg focus:outline-none text-gray-800">
+                    <button class="btn-gradient px-6 py-3 rounded-lg font-semibold text-white">${content.btn}</button>
+                </div>
+            `;
+        }
+
+        function updateFooter() {
+            const footer = document.getElementById('footer-content');
+            const content = siteConfig.footer[currentLang];
+            footer.innerHTML = `
+                <div class="container mx-auto px-4">
+                    <div class="grid md:grid-cols-4 gap-12 mb-12">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-lg">${siteConfig.site.logo.icon}</span>
+                                </div>
+                                <span class="text-xl font-bold">${siteConfig.site.name}</span>
+                            </div>
+                            <p class="text-gray-400">${content.description}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.quickLinks.title}</h4>
+                            <ul class="space-y-2">
+                                ${content.quickLinks.links.map(link => `<li><a href="${link.url}" class="text-gray-400 hover:text-white transition-colors">${link.name}</a></li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.contact.title}</h4>
+                            <ul class="space-y-2 text-gray-400">
+                                <li><i class="fa fa-map-marker mr-2"></i> ${content.contact.address}</li>
+                                <li><i class="fa fa-phone mr-2"></i> ${content.contact.phone}</li>
+                                <li><i class="fa fa-envelope mr-2"></i> ${content.contact.email}</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">${content.follow.title}</h4>
+                            <div class="flex gap-4">
+                                ${content.follow.social.map(social => `<a href="${social.url}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa ${social.icon}"></i></a>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                        <p>&copy; 2026 ${siteConfig.site.name}. ${content.rights}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateContent() {
+            updateNavigation();
+            updatePageHeader();
+            updateNewsFilters();
+            updateNews();
+            updatePagination();
+            updateSubscribe();
+            updateFooter();
+        }
 
         function switchLanguage(lang) {
-            document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
+            currentLang = lang;
+            updateContent();
+            document.getElementById('current-lang').textContent = currentLang === 'zh' ? '中文' : 'English';
             document.getElementById('lang-dropdown').classList.add('hidden');
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (translations[lang][key]) el.innerHTML = translations[lang][key];
-            });
-            document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-lang-placeholder');
-                if (translations[lang][key]) el.placeholder = translations[lang][key];
-            });
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
         }
 
         document.getElementById('lang-switcher').addEventListener('click', function(e) {
@@ -306,6 +282,9 @@
         });
         document.addEventListener('click', function() { document.getElementById('lang-dropdown').classList.add('hidden'); });
         document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+
+        // Initialize
+        updateContent();
     </script>
 </body>
 </html>

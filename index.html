@@ -6,6 +6,7 @@
     <title>外贸公司 - 全球贸易解决方案</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="config.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
@@ -57,15 +58,7 @@
                     </div>
                     <a href="index.html" class="text-2xl font-bold text-gray-800">TradePro</a>
                 </div>
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="index.html" class="nav-link font-medium text-blue-600" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="nav-link font-medium text-gray-600 hover:text-blue-600 transition-colors" data-lang="nav-contact">联系我们</a>
-                </div>
+                <div class="hidden lg:flex items-center gap-8" id="main-nav"></div>
                 <div class="hidden lg:flex items-center gap-4">
                     <div class="relative">
                         <button id="lang-switcher" class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 transition-colors">
@@ -87,19 +80,7 @@
         </div>
         <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
             <div class="container mx-auto px-4 py-4">
-                <div class="flex flex-col gap-3">
-                    <a href="index.html" class="font-medium text-blue-600 py-2" data-lang="nav-home">首页</a>
-                    <a href="solutions.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-solutions">解决方案</a>
-                    <a href="products.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-products">产品中心</a>
-                    <a href="cases.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-cases">客户案例</a>
-                    <a href="news.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-news">新闻中心</a>
-                    <a href="about.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-about">关于我们</a>
-                    <a href="contact.html" class="font-medium text-gray-600 hover:text-blue-600 py-2" data-lang="nav-contact">联系我们</a>
-                    <div class="flex items-center gap-4 pt-3 border-t">
-                        <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
-                        <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
-                    </div>
-                </div>
+                <div class="flex flex-col gap-3" id="mobile-nav"></div>
             </div>
         </div>
     </nav>
@@ -107,257 +88,47 @@
     <!-- 英雄区域 -->
     <section class="hero-section min-h-screen flex items-center pt-20">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center text-white">
-                <span class="inline-block px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm font-medium mb-6" data-lang="hero-badge">
-                    专业的全球贸易解决方案
-                </span>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight" data-lang="hero-title">
-                    连接全球市场<br>
-                    创造商业价值
-                </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto" data-lang="hero-desc">
-                    我们拥有15年以上的外贸经验，为您提供高品质的产品和专业的服务，助力您的品牌走向世界
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="solutions.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white text-lg" data-lang="hero-btn1">
-                        探索解决方案
-                    </a>
-                    <a href="contact.html" class="px-8 py-4 rounded-lg font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-colors text-lg" data-lang="hero-btn2">
-                        联系我们
-                    </a>
-                </div>
-            </div>
+            <div class="max-w-4xl mx-auto text-center text-white" id="hero-content"></div>
         </div>
     </section>
 
     <!-- 数据统计 -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold stat-number mb-2">15+</div>
-                    <div class="text-gray-600" data-lang="stat1">年行业经验</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold stat-number mb-2">50+</div>
-                    <div class="text-gray-600" data-lang="stat2">全球客户</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold stat-number mb-2">1000+</div>
-                    <div class="text-gray-600" data-lang="stat3">成功案例</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-bold stat-number mb-2">30+</div>
-                    <div class="text-gray-600" data-lang="stat4">国家地区</div>
-                </div>
-            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" id="stats-container"></div>
         </div>
     </section>
 
     <!-- 解决方案 -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase" data-lang="solutions-tag">我们的服务</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3" data-lang="solutions-title">全方位贸易解决方案</h2>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto" data-lang="solutions-desc">
-                    从产品开发到物流配送，我们提供一站式服务，让您的全球贸易更简单
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fa fa-rocket text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="sol1-title">产品定制开发</h3>
-                    <p class="text-gray-600 mb-6" data-lang="sol1-desc">根据您的需求，提供专业的产品定制服务，从设计到生产全程把控品质</p>
-                    <a href="solutions.html" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="sol-learn">了解更多 <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fa fa-cogs text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="sol2-title">供应链管理</h3>
-                    <p class="text-gray-600 mb-6" data-lang="sol2-desc">优化您的供应链，从采购、生产到配送全流程高效管理</p>
-                    <a href="solutions.html" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="sol-learn">了解更多 <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fa fa-ship text-2xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="sol3-title">国际物流</h3>
-                    <p class="text-gray-600 mb-6" data-lang="sol3-desc">覆盖全球的物流网络，安全、快速、可靠的配送服务</p>
-                    <a href="solutions.html" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="sol-learn">了解更多 <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-                    <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fa fa-shield text-2xl text-orange-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="sol4-title">品质控制</h3>
-                    <p class="text-gray-600 mb-6" data-lang="sol4-desc">严格的质量检测流程，确保每一件产品都符合国际标准</p>
-                    <a href="solutions.html" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="sol-learn">了解更多 <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fa fa-support text-2xl text-red-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="sol5-title">售后服务</h3>
-                    <p class="text-gray-600 mb-6" data-lang="sol5-desc">专业的客户服务团队，随时为您提供支持和解决方案</p>
-                    <a href="solutions.html" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="sol-learn">了解更多 <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100">
-                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fa fa-globe text-2xl text-indigo-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang="sol6-title">市场拓展</h3>
-                    <p class="text-gray-600 mb-6" data-lang="sol6-desc">帮助您开拓新市场，建立全球销售渠道网络</p>
-                    <a href="solutions.html" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" data-lang="sol-learn">了解更多 <i class="fa fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <div class="text-center mb-16" id="solutions-header"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="solutions-container"></div>
         </div>
     </section>
 
     <!-- 为什么选择我们 -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase" data-lang="why-tag">为什么选择我们</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-6" data-lang="why-title">您的全球贸易伙伴</h2>
-                    <p class="text-gray-600 mb-8" data-lang="why-desc">我们不仅是供应商，更是您的长期合作伙伴。凭借丰富的行业经验和专业的团队，我们致力于为您提供超越期望的价值。</p>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa fa-lightbulb-o text-xl text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 mb-1" data-lang="why1-title">创新思维</h4>
-                                <p class="text-gray-600 text-sm" data-lang="why1-desc">不断寻找创新解决方案，为您的品牌带来差异化竞争优势</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa fa-handshake-o text-xl text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 mb-1" data-lang="why2-title">灵活合作</h4>
-                                <p class="text-gray-600 text-sm" data-lang="why2-desc">根据您的需求提供定制化服务方案，灵活适应各种项目规模</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa fa-check-circle-o text-xl text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 mb-1" data-lang="why3-title">品质保证</h4>
-                                <p class="text-gray-600 text-sm" data-lang="why3-desc">严格的质量控制体系，确保每一件产品都达到最高标准</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="团队协作" class="rounded-2xl shadow-2xl w-full">
-                </div>
-            </div>
+            <div class="flex flex-col lg:flex-row items-center gap-16" id="why-container"></div>
         </div>
     </section>
 
     <!-- 产品展示 -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase" data-lang="products-tag">产品中心</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3" data-lang="products-title">热门产品</h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="card-hover bg-white rounded-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                        <i class="fa fa-mobile-phone text-6xl text-blue-400"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2" data-lang="prod1">消费电子</h3>
-                        <p class="text-gray-600 text-sm mb-4" data-lang="prod1-desc">智能手机、平板、智能穿戴</p>
-                    </div>
-                </div>
-                <div class="card-hover bg-white rounded-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
-                        <i class="fa fa-cutlery text-6xl text-purple-400"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2" data-lang="prod2">家居用品</h3>
-                        <p class="text-gray-600 text-sm mb-4" data-lang="prod2-desc">厨房电器、家居装饰</p>
-                    </div>
-                </div>
-                <div class="card-hover bg-white rounded-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                        <i class="fa fa-leaf text-6xl text-green-400"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2" data-lang="prod3">户外用品</h3>
-                        <p class="text-gray-600 text-sm mb-4" data-lang="prod3-desc">运动装备、露营设备</p>
-                    </div>
-                </div>
-                <div class="card-hover bg-white rounded-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
-                        <i class="fa fa-briefcase text-6xl text-orange-400"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2" data-lang="prod4">商务礼品</h3>
-                        <p class="text-gray-600 text-sm mb-4" data-lang="prod4-desc">定制礼品、企业周边</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="products.html" class="btn-gradient px-8 py-3 rounded-lg font-semibold text-white inline-flex items-center gap-2" data-lang="products-more">查看全部产品 <i class="fa fa-arrow-right"></i></a>
-            </div>
+            <div class="text-center mb-16" id="products-header"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="products-container"></div>
+            <div class="text-center mt-12" id="products-more"></div>
         </div>
     </section>
 
     <!-- 客户案例 -->
     <section class="py-20 bg-gray-900 text-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase" data-lang="cases-tag">客户案例</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3" data-lang="cases-title">他们与我们合作</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
-                    <div class="text-4xl text-blue-400 mb-4">"</div>
-                    <p class="text-gray-300 mb-6" data-lang="case1-quote">与TradePro合作5年来，他们始终提供高质量的产品和专业的服务，是我们值得信赖的伙伴。</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center font-bold">J</div>
-                        <div>
-                            <div class="font-semibold">John Smith</div>
-                            <div class="text-gray-400 text-sm">CEO, TechCorp</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
-                    <div class="text-4xl text-blue-400 mb-4">"</div>
-                    <p class="text-gray-300 mb-6" data-lang="case2-quote">他们的供应链管理非常出色，帮助我们降低了成本，提高了效率。强烈推荐！</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center font-bold">L</div>
-                        <div>
-                            <div class="font-semibold">Li Ming</div>
-                            <div class="text-gray-400 text-sm">采购总监, GlobalMart</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
-                    <div class="text-4xl text-blue-400 mb-4">"</div>
-                    <p class="text-gray-300 mb-6" data-lang="case3-quote">专业、高效、创新！他们总能超出我们的期望，是真正的合作伙伴。</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center font-bold">M</div>
-                        <div>
-                            <div class="font-semibold">Maria Garcia</div>
-                            <div class="text-gray-400 text-sm">创始人, BrandVision</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="cases.html" class="px-8 py-3 rounded-lg font-semibold border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white transition-colors inline-flex items-center gap-2" data-lang="cases-more">查看更多案例 <i class="fa fa-arrow-right"></i></a>
-            </div>
+            <div class="text-center mb-16" id="cases-header"></div>
+            <div class="grid md:grid-cols-3 gap-8" id="cases-container"></div>
+            <div class="text-center mt-12" id="cases-more"></div>
         </div>
     </section>
 
@@ -365,17 +136,8 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase" data-lang="cta-tag">开始合作</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3" data-lang="cta-title">准备好开启您的全球贸易之旅了吗？</h2>
-                    <p class="text-gray-600 mt-4" data-lang="cta-desc">无论您有什么需求，我们都会为您提供专业的解决方案</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contact.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white text-lg text-center" data-lang="cta-btn1">联系我们</a>
-                    <a href="tel:+8612345678910" class="px-8 py-4 rounded-lg font-semibold border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 transition-colors text-lg text-center">
-                        <i class="fa fa-phone mr-2"></i> +86 123 4567 8910
-                    </a>
-                </div>
+                <div class="text-center mb-12" id="cta-header"></div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" id="cta-buttons"></div>
             </div>
         </div>
     </section>
@@ -383,129 +145,309 @@
     <!-- 页脚 -->
     <footer class="bg-gray-900 text-white py-16">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-lg">T</span>
-                        </div>
-                        <span class="text-xl font-bold">TradePro</span>
-                    </div>
-                    <p class="text-gray-400" data-lang="footer-desc">专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-nav">快速导航</h4>
-                    <ul class="space-y-2">
-                        <li><a href="solutions.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-solutions">解决方案</a></li>
-                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-products">产品中心</a></li>
-                        <li><a href="cases.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-cases">客户案例</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors" data-lang="nav-about">关于我们</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-contact">联系我们</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fa fa-map-marker mr-2"></i> <span data-lang="footer-address">中国上海市浦东新区</span></li>
-                        <li><i class="fa fa-phone mr-2"></i> +86 123 4567 8910</li>
-                        <li><i class="fa fa-envelope mr-2"></i> info@tradepro.com</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-lang="footer-follow">关注我们</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"><i class="fa fa-linkedin"></i></a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors"><i class="fa fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2026 TradePro. <span data-lang="footer-rights">保留所有权利.</span></p>
-            </div>
+            <div class="grid md:grid-cols-4 gap-12 mb-12" id="footer-container"></div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400" id="footer-copyright"></div>
         </div>
     </footer>
 
     <script>
-        const translations = {
-            zh: {
-                'nav-home': '首页', 'nav-solutions': '解决方案', 'nav-products': '产品中心', 'nav-cases': '客户案例', 'nav-news': '新闻中心', 'nav-about': '关于我们', 'nav-contact': '联系我们', 'nav-contact-btn': '联系我们',
-                'hero-badge': '专业的全球贸易解决方案', 'hero-title': '连接全球市场<br>创造商业价值', 'hero-desc': '我们拥有15年以上的外贸经验，为您提供高品质的产品和专业的服务，助力您的品牌走向世界',
-                'hero-btn1': '探索解决方案', 'hero-btn2': '联系我们', 'stat1': '年行业经验', 'stat2': '全球客户', 'stat3': '成功案例', 'stat4': '国家地区',
-                'solutions-tag': '我们的服务', 'solutions-title': '全方位贸易解决方案', 'solutions-desc': '从产品开发到物流配送，我们提供一站式服务，让您的全球贸易更简单',
-                'sol1-title': '产品定制开发', 'sol1-desc': '根据您的需求，提供专业的产品定制服务，从设计到生产全程把控品质',
-                'sol2-title': '供应链管理', 'sol2-desc': '优化您的供应链，从采购、生产到配送全流程高效管理',
-                'sol3-title': '国际物流', 'sol3-desc': '覆盖全球的物流网络，安全、快速、可靠的配送服务',
-                'sol4-title': '品质控制', 'sol4-desc': '严格的质量检测流程，确保每一件产品都符合国际标准',
-                'sol5-title': '售后服务', 'sol5-desc': '专业的客户服务团队，随时为您提供支持和解决方案',
-                'sol6-title': '市场拓展', 'sol6-desc': '帮助您开拓新市场，建立全球销售渠道网络',
-                'sol-learn': '了解更多', 'why-tag': '为什么选择我们', 'why-title': '您的全球贸易伙伴',
-                'why-desc': '我们不仅是供应商，更是您的长期合作伙伴。凭借丰富的行业经验和专业的团队，我们致力于为您提供超越期望的价值。',
-                'why1-title': '创新思维', 'why1-desc': '不断寻找创新解决方案，为您的品牌带来差异化竞争优势',
-                'why2-title': '灵活合作', 'why2-desc': '根据您的需求提供定制化服务方案，灵活适应各种项目规模',
-                'why3-title': '品质保证', 'why3-desc': '严格的质量控制体系，确保每一件产品都达到最高标准',
-                'products-tag': '产品中心', 'products-title': '热门产品',
-                'prod1': '消费电子', 'prod1-desc': '智能手机、平板、智能穿戴',
-                'prod2': '家居用品', 'prod2-desc': '厨房电器、家居装饰',
-                'prod3': '户外用品', 'prod3-desc': '运动装备、露营设备',
-                'prod4': '商务礼品', 'prod4-desc': '定制礼品、企业周边',
-                'products-more': '查看全部产品',
-                'cases-tag': '客户案例', 'cases-title': '他们与我们合作',
-                'case1-quote': '与TradePro合作5年来，他们始终提供高质量的产品和专业的服务，是我们值得信赖的伙伴。',
-                'case2-quote': '他们的供应链管理非常出色，帮助我们降低了成本，提高了效率。强烈推荐！',
-                'case3-quote': '专业、高效、创新！他们总能超出我们的期望，是真正的合作伙伴。',
-                'cases-more': '查看更多案例',
-                'cta-tag': '开始合作', 'cta-title': '准备好开启您的全球贸易之旅了吗？', 'cta-desc': '无论您有什么需求，我们都会为您提供专业的解决方案', 'cta-btn1': '联系我们',
-                'footer-desc': '专业的全球贸易解决方案提供商，帮助您拓展全球市场，创造商业价值。',
-                'footer-nav': '快速导航', 'footer-contact': '联系我们', 'footer-address': '中国上海市浦东新区', 'footer-follow': '关注我们', 'footer-rights': '保留所有权利.'
-            },
-            en: {
-                'nav-home': 'Home', 'nav-solutions': 'Solutions', 'nav-products': 'Products', 'nav-cases': 'Cases', 'nav-news': 'News', 'nav-about': 'About Us', 'nav-contact': 'Contact', 'nav-contact-btn': 'Contact Us',
-                'hero-badge': 'Professional Global Trade Solutions', 'hero-title': 'Connect Global Markets<br>Create Business Value', 'hero-desc': 'With over 15 years of foreign trade experience, we provide high-quality products and professional services to help your brand go global',
-                'hero-btn1': 'Explore Solutions', 'hero-btn2': 'Contact Us', 'stat1': 'Years Experience', 'stat2': 'Global Clients', 'stat3': 'Success Cases', 'stat4': 'Countries',
-                'solutions-tag': 'Our Services', 'solutions-title': 'Comprehensive Trade Solutions', 'solutions-desc': 'From product development to logistics, we provide one-stop services to make your global trade simpler',
-                'sol1-title': 'Custom Product Development', 'sol1-desc': 'Professional custom product services based on your needs, with quality control from design to production',
-                'sol2-title': 'Supply Chain Management', 'sol2-desc': 'Optimize your supply chain with efficient management from procurement to delivery',
-                'sol3-title': 'International Logistics', 'sol3-desc': 'Global logistics network with safe, fast, and reliable delivery services',
-                'sol4-title': 'Quality Control', 'sol4-desc': 'Strict quality inspection process to ensure every product meets international standards',
-                'sol5-title': 'After-sales Service', 'sol5-desc': 'Professional customer service team ready to provide support and solutions at any time',
-                'sol6-title': 'Market Expansion', 'sol6-desc': 'Help you explore new markets and build global sales channel networks',
-                'sol-learn': 'Learn More', 'why-tag': 'Why Choose Us', 'why-title': 'Your Global Trade Partner',
-                'why-desc': 'We are not just suppliers, but your long-term partners. With rich industry experience and professional teams, we are committed to providing you with value beyond expectations.',
-                'why1-title': 'Innovation', 'why1-desc': 'Continuously seeking innovative solutions to bring differentiated competitive advantages to your brand',
-                'why2-title': 'Flexibility', 'why2-desc': 'Providing customized service solutions based on your needs, adapting to various project scales',
-                'why3-title': 'Quality Assurance', 'why3-desc': 'Strict quality control system to ensure every product meets the highest standards',
-                'products-tag': 'Products', 'products-title': 'Popular Products',
-                'prod1': 'Consumer Electronics', 'prod1-desc': 'Smartphones, tablets, wearables',
-                'prod2': 'Home Goods', 'prod2-desc': 'Kitchen appliances, home decor',
-                'prod3': 'Outdoor Products', 'prod3-desc': 'Sports equipment, camping gear',
-                'prod4': 'Business Gifts', 'prod4-desc': 'Custom gifts, corporate merchandise',
-                'products-more': 'View All Products',
-                'cases-tag': 'Case Studies', 'cases-title': 'They Work With Us',
-                'case1-quote': 'For 5 years working with TradePro, they have always provided high-quality products and professional services. They are our trusted partner.',
-                'case2-quote': 'Their supply chain management is excellent, helping us reduce costs and improve efficiency. Highly recommended!',
-                'case3-quote': 'Professional, efficient, and innovative! They always exceed our expectations. True partners.',
-                'cases-more': 'View More Cases',
-                'cta-tag': 'Start Cooperation', 'cta-title': 'Ready to Start Your Global Trade Journey?', 'cta-desc': 'Whatever your needs are, we will provide you with professional solutions', 'cta-btn1': 'Contact Us',
-                'footer-desc': 'Professional global trade solutions provider, helping you expand global markets and create business value.',
-                'footer-nav': 'Quick Links', 'footer-contact': 'Contact Us', 'footer-address': 'Pudong New Area, Shanghai, China', 'footer-follow': 'Follow Us', 'footer-rights': 'All rights reserved.'
-            }
-        };
-
-        let currentLang = 'zh';
+        let currentLang = siteConfig.site.language;
 
         function switchLanguage(lang) {
             currentLang = lang;
             document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
             document.getElementById('lang-dropdown').classList.add('hidden');
-            
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            updateContent();
+        }
+
+        function updateContent() {
+            updateNavigation();
+            updateHero();
+            updateStats();
+            updateSolutions();
+            updateWhy();
+            updateProducts();
+            updateCases();
+            updateCta();
+            updateFooter();
+        }
+
+        function updateNavigation() {
+            const navItems = siteConfig.navigation[currentLang];
+            
+            // 主导航
+            const mainNav = document.getElementById('main-nav');
+            mainNav.innerHTML = '';
+            navItems.forEach(item => {
+                const link = document.createElement('a');
+                link.href = item.url;
+                link.className = `nav-link font-medium ${window.location.pathname.includes(item.id) ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600 transition-colors'}`;
+                link.textContent = item.name;
+                mainNav.appendChild(link);
+            });
+
+            // 移动端导航
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.innerHTML = '';
+            navItems.forEach(item => {
+                const link = document.createElement('a');
+                link.href = item.url;
+                link.className = `font-medium ${window.location.pathname.includes(item.id) ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'} py-2`;
+                link.textContent = item.name;
+                mobileNav.appendChild(link);
+            });
+
+            // 语言切换按钮
+            const langButtons = document.createElement('div');
+            langButtons.className = 'flex items-center gap-4 pt-3 border-t';
+            langButtons.innerHTML = `
+                <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
+                <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
+            `;
+            mobileNav.appendChild(langButtons);
+        }
+
+        function updateHero() {
+            const hero = siteConfig.home[currentLang].hero;
+            const heroContent = document.getElementById('hero-content');
+            heroContent.innerHTML = `
+                <span class="inline-block px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm font-medium mb-6">
+                    ${hero.badge}
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    ${hero.title}
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    ${hero.desc}
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="solutions.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white text-lg">
+                        ${hero.btn1}
+                    </a>
+                    <a href="contact.html" class="px-8 py-4 rounded-lg font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-colors text-lg">
+                        ${hero.btn2}
+                    </a>
+                </div>
+            `;
+        }
+
+        function updateStats() {
+            const stats = siteConfig.home[currentLang].stats;
+            const statsContainer = document.getElementById('stats-container');
+            statsContainer.innerHTML = '';
+            stats.forEach(stat => {
+                const statItem = document.createElement('div');
+                statItem.className = 'stat-item';
+                statItem.innerHTML = `
+                    <div class="text-4xl md:text-5xl font-bold text-blue-600 mb-2">${stat.number}</div>
+                    <div class="text-gray-600">${stat.text}</div>
+                `;
+                statsContainer.appendChild(statItem);
+            });
+        }
+
+        function updateSolutions() {
+            const solutions = siteConfig.home[currentLang].solutions;
+            const solutionsHeader = document.getElementById('solutions-header');
+            solutionsHeader.innerHTML = `
+                <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase">${solutions.tag}</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">${solutions.title}</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    ${solutions.desc}
+                </p>
+            `;
+
+            const solutionsContainer = document.getElementById('solutions-container');
+            solutionsContainer.innerHTML = '';
+            solutions.items.forEach((item, index) => {
+                const colors = ['blue', 'purple', 'green', 'orange', 'red', 'indigo'];
+                const color = colors[index % colors.length];
+                const solutionItem = document.createElement('div');
+                solutionItem.className = 'card-hover bg-white rounded-2xl p-8 border border-gray-100';
+                solutionItem.innerHTML = `
+                    <div class="w-14 h-14 bg-${color}-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa ${item.icon} text-2xl text-${color}-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
+                    <p class="text-gray-600 mb-6">${item.desc}</p>
+                    <a href="solutions.html" class="text-blue-600 font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all">了解更多 <i class="fa fa-arrow-right"></i></a>
+                `;
+                solutionsContainer.appendChild(solutionItem);
+            });
+        }
+
+        function updateWhy() {
+            const whyContainer = document.getElementById('why-container');
+            whyContainer.innerHTML = `
+                <div class="lg:w-1/2">
+                    <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase">为什么选择我们</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-6">您的全球贸易伙伴</h2>
+                    <p class="text-gray-600 mb-8">我们不仅是供应商，更是您的长期合作伙伴。凭借丰富的行业经验和专业的团队，我们致力于为您提供超越期望的价值。</p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-lightbulb-o text-xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">创新思维</h4>
+                                <p class="text-gray-600 text-sm">不断寻找创新解决方案，为您的品牌带来差异化竞争优势</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-handshake-o text-xl text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">灵活合作</h4>
+                                <p class="text-gray-600 text-sm">根据您的需求提供定制化服务方案，灵活适应各种项目规模</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-check-circle-o text-xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">品质保证</h4>
+                                <p class="text-gray-600 text-sm">严格的质量控制体系，确保每一件产品都达到最高标准</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="团队协作" class="rounded-2xl shadow-2xl w-full">
+                </div>
+            `;
+        }
+
+        function updateProducts() {
+            const products = siteConfig.home[currentLang].products;
+            const productsHeader = document.getElementById('products-header');
+            productsHeader.innerHTML = `
+                <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase">${products.tag}</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">${products.title}</h2>
+            `;
+
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = '';
+            products.items.forEach((item, index) => {
+                const colors = ['blue', 'purple', 'green', 'orange'];
+                const color = colors[index % colors.length];
+                const icons = ['fa-mobile-phone', 'fa-cutlery', 'fa-leaf', 'fa-briefcase'];
+                const icon = icons[index % icons.length];
+                const productItem = document.createElement('div');
+                productItem.className = 'card-hover bg-white rounded-xl overflow-hidden';
+                productItem.innerHTML = `
+                    <div class="h-48 bg-gradient-to-br from-${color}-100 to-${color}-200 flex items-center justify-center">
+                        <i class="fa ${icon} text-6xl text-${color}-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-gray-900 mb-2">${item.name}</h3>
+                        <p class="text-gray-600 text-sm mb-4">${item.desc}</p>
+                    </div>
+                `;
+                productsContainer.appendChild(productItem);
+            });
+
+            const productsMore = document.getElementById('products-more');
+            productsMore.innerHTML = `
+                <a href="products.html" class="btn-gradient px-8 py-3 rounded-lg font-semibold text-white inline-flex items-center gap-2">查看全部产品 <i class="fa fa-arrow-right"></i></a>
+            `;
+        }
+
+        function updateCases() {
+            const cases = siteConfig.home[currentLang].cases;
+            const casesHeader = document.getElementById('cases-header');
+            casesHeader.innerHTML = `
+                <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">${cases.tag}</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3">${cases.title}</h2>
+            `;
+
+            const casesContainer = document.getElementById('cases-container');
+            casesContainer.innerHTML = '';
+            cases.items.forEach((item, index) => {
+                const colors = ['blue', 'purple', 'green'];
+                const color = colors[index % colors.length];
+                const initials = item.name.split(' ')[0][0];
+                const caseItem = document.createElement('div');
+                caseItem.className = 'bg-gray-800/50 rounded-2xl p-8 border border-gray-700';
+                caseItem.innerHTML = `
+                    <div class="text-4xl text-blue-400 mb-4">"</div>
+                    <p class="text-gray-300 mb-6">${item.desc}</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-${color}-500 rounded-full flex items-center justify-center font-bold">${initials}</div>
+                        <div>
+                            <div class="font-semibold">${item.name}</div>
+                            <div class="text-gray-400 text-sm">客户</div>
+                        </div>
+                    </div>
+                `;
+                casesContainer.appendChild(caseItem);
+            });
+
+            const casesMore = document.getElementById('cases-more');
+            casesMore.innerHTML = `
+                <a href="cases.html" class="px-8 py-3 rounded-lg font-semibold border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white transition-colors inline-flex items-center gap-2">查看更多案例 <i class="fa fa-arrow-right"></i></a>
+            `;
+        }
+
+        function updateCta() {
+            const cta = siteConfig.home[currentLang].cta;
+            const ctaHeader = document.getElementById('cta-header');
+            ctaHeader.innerHTML = `
+                <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase">${cta.tag}</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">${cta.title}</h2>
+                <p class="text-gray-600 mt-4">${cta.desc}</p>
+            `;
+
+            const ctaButtons = document.getElementById('cta-buttons');
+            ctaButtons.innerHTML = `
+                <a href="contact.html" class="btn-gradient px-8 py-4 rounded-lg font-semibold text-white text-lg text-center">${cta.btn}</a>
+                <a href="tel:+8612345678910" class="px-8 py-4 rounded-lg font-semibold border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 transition-colors text-lg text-center">
+                    <i class="fa fa-phone mr-2"></i> +86 123 4567 8910
+                </a>
+            `;
+        }
+
+        function updateFooter() {
+            const footer = siteConfig.footer[currentLang];
+            const footerContainer = document.getElementById('footer-container');
+            footerContainer.innerHTML = `
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">${siteConfig.site.logo.icon}</span>
+                        </div>
+                        <span class="text-xl font-bold">${siteConfig.site.logo.text}</span>
+                    </div>
+                    <p class="text-gray-400">${footer.description}</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">${footer.quickLinks.title}</h4>
+                    <ul class="space-y-2">
+                        ${footer.quickLinks.links.slice(1, 5).map(link => `<li><a href="${link.url}" class="text-gray-400 hover:text-white transition-colors">${link.name}</a></li>`).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">${footer.contact.title}</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fa fa-map-marker mr-2"></i> ${footer.contact.address}</li>
+                        <li><i class="fa fa-phone mr-2"></i> ${footer.contact.phone}</li>
+                        <li><i class="fa fa-envelope mr-2"></i> ${footer.contact.email}</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">${footer.follow.title}</h4>
+                    <div class="flex gap-4">
+                        ${footer.follow.social.map(social => `<a href="${social.url}" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa ${social.icon}"></i></a>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            const footerCopyright = document.getElementById('footer-copyright');
+            footerCopyright.innerHTML = `
+                <p>&copy; 2026 ${siteConfig.site.name}. ${footer.rights}</p>
+            `;
         }
 
         document.getElementById('lang-switcher').addEventListener('click', function(e) {
@@ -520,6 +462,9 @@
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+
+        // 初始化页面内容
+        updateContent();
     </script>
 </body>
 </html>
