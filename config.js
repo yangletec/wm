@@ -7,7 +7,73 @@ const siteConfig = {
       text: 'TradePro',
       icon: 'T'
     },
-    language: 'zh' // 默认语言: zh, en
+    language: 'zh', // 默认语言: zh, en
+    seo: {
+      keywords: '外贸公司, 全球贸易解决方案, 产品定制, 供应链管理, 国际市场拓展',
+      author: 'TradePro Team'
+    }
+  },
+  
+  // 配色方案配置
+  colors: {
+    // 方案一：专业蓝色系
+    blueScheme: {
+      primary: '#1e40af', // 主蓝色
+      secondary: '#3b82f6', // 辅助蓝色
+      accent: '#93c5fd', // 浅蓝色
+      white: '#ffffff', // 白色
+      lightGray: '#f3f4f6', // 浅灰
+      mediumGray: '#9ca3af', // 中灰
+      darkGray: '#374151', // 深灰
+      black: '#111827' // 黑色
+    },
+    // 方案二：简约白色系
+    whiteScheme: {
+      primary: '#ffffff', // 主白色
+      secondary: '#3b82f6', // 辅助蓝色
+      accent: '#10b981', // 点缀绿色
+      lightGray: '#f9fafb', // 超浅灰
+      mediumGray: '#f3f4f6', // 浅灰
+      darkGray: '#9ca3af', // 中灰
+      text: '#374151', // 文本颜色
+      darkText: '#111827' // 深色文本
+    },
+    // 当前使用的配色方案
+    current: 'whiteScheme' // 可切换为 'whiteScheme'
+  },
+  
+  // SEO配置
+  seo: {
+    zh: {
+      index: {
+        title: '外贸公司 - 全球贸易解决方案 | TradePro',
+        description: 'TradePro是专业的全球贸易解决方案提供商，拥有15年行业经验，为您提供产品定制、供应链管理、全球市场拓展等一站式服务。'
+      },
+      solutions: {
+        title: '全方位贸易解决方案 | TradePro',
+        description: 'TradePro提供从产品开发到物流配送的一站式贸易解决方案，包括产品定制、供应链管理、全球市场拓展和品质控制。'
+      },
+      products: {
+        title: '产品中心 - 高品质产品 | TradePro',
+        description: 'TradePro提供多种高品质产品，包括消费电子、家居用品、户外用品和商务礼品，满足全球客户的不同需求。'
+      },
+      cases: {
+        title: '客户案例 - 成功故事 | TradePro',
+        description: '了解全球知名品牌如何通过TradePro的贸易解决方案实现业务增长，包括市场拓展、供应链优化等成功案例。'
+      },
+      news: {
+        title: '新闻中心 - 公司动态 | TradePro',
+        description: '关注TradePro的最新动态和行业资讯，了解全球贸易趋势、公司新闻和活动信息。'
+      },
+      about: {
+        title: '关于我们 - 全球贸易伙伴 | TradePro',
+        description: 'TradePro是您的全球贸易伙伴，拥有15年行业经验，为全球客户提供专业的贸易解决方案。'
+      },
+      contact: {
+        title: '联系我们 - TradePro',
+        description: '联系TradePro，了解如何通过我们的专业贸易解决方案帮助您拓展全球市场，创造商业价值。'
+      }
+    }
   },
   
   // 导航菜单
@@ -20,15 +86,6 @@ const siteConfig = {
       { name: '新闻中心', url: 'news.html', id: 'news' },
       { name: '关于我们', url: 'about.html', id: 'about' },
       { name: '联系我们', url: 'contact.html', id: 'contact' }
-    ],
-    en: [
-      { name: 'Home', url: 'index.html', id: 'home' },
-      { name: 'Solutions', url: 'solutions.html', id: 'solutions' },
-      { name: 'Products', url: 'products.html', id: 'products' },
-      { name: 'Cases', url: 'cases.html', id: 'cases' },
-      { name: 'News', url: 'news.html', id: 'news' },
-      { name: 'About Us', url: 'about.html', id: 'about' },
-      { name: 'Contact', url: 'contact.html', id: 'contact' }
     ]
   },
   
@@ -102,75 +159,6 @@ const siteConfig = {
         desc: '无论您有什么需求，我们都会为您提供专业的解决方案',
         btn: '联系我们'
       }
-    },
-    en: {
-      hero: {
-        badge: 'Professional Global Trade Solutions',
-        title: 'Connect Global Markets<br>Create Business Value',
-        desc: 'With over 15 years of foreign trade experience, we provide high-quality products and professional services to help your brand go global',
-        btn1: 'Explore Solutions',
-        btn2: 'Contact Us'
-      },
-      stats: [
-        { number: '15+', text: 'Years Experience' },
-        { number: '500+', text: 'Global Clients' },
-        { number: '2000+', text: 'Success Cases' },
-        { number: '30+', text: 'Countries' }
-      ],
-      solutions: {
-        tag: 'Our Services',
-        title: 'Comprehensive Trade Solutions',
-        desc: 'From product development to logistics, we provide one-stop services to make your global trade simpler',
-        items: [
-          {
-            icon: 'fa-cubes',
-            title: 'Custom Product Development',
-            desc: 'Professional custom product services based on your needs, with quality control from design to production'
-          },
-          {
-            icon: 'fa-truck',
-            title: 'Supply Chain Management',
-            desc: 'Optimize your supply chain with efficient management from procurement to delivery'
-          },
-          {
-            icon: 'fa-globe',
-            title: 'Global Market Expansion',
-            desc: 'Help you enter global markets with market analysis and localization services'
-          },
-          {
-            icon: 'fa-shield',
-            title: 'Quality Control',
-            desc: 'Strict quality control system to ensure every product meets international standards'
-          }
-        ]
-      },
-      products: {
-        tag: 'Popular Products',
-        title: 'Featured Products',
-        desc: 'We provide a variety of high-quality products to meet the different needs of global customers',
-        items: [
-          { name: 'Smartphones', desc: 'High-end smartphones with global band support' },
-          { name: 'Smart Home', desc: 'Smart home appliances to enhance life quality' },
-          { name: 'Outdoor Gear', desc: 'Professional outdoor equipment for various environments' },
-          { name: 'Business Gifts', desc: 'Exquisite business gifts that showcase brand value' }
-        ]
-      },
-      cases: {
-        tag: 'Case Studies',
-        title: 'Success Stories',
-        desc: 'Learn why global brands choose to work with us',
-        items: [
-          { name: 'TechCorp Europe Expansion', desc: 'Helped TechCorp successfully enter the European market with 200% sales growth' },
-          { name: 'HomeStyle Global Supply Chain Optimization', desc: 'Optimized global supply chain for HomeStyle, reducing costs by 30%' },
-          { name: 'OutdoorPro Brand Internationalization', desc: 'Helped OutdoorPro brand globalization, covering 30+ countries' }
-        ]
-      },
-      cta: {
-        tag: 'Start Cooperation',
-        title: 'Ready to start your global trade journey?',
-        desc: 'No matter what your needs are, we will provide you with professional solutions',
-        btn: 'Contact Us'
-      }
     }
   },
   
@@ -208,40 +196,6 @@ const siteConfig = {
         title: '需要定制解决方案？',
         desc: '我们的专家团队将根据您的具体需求，为您提供量身定制的解决方案',
         btn: '联系我们'
-      }
-    },
-    en: {
-      page: {
-        tag: 'Solutions',
-        title: 'Comprehensive Trade Solutions',
-        desc: 'From product development to logistics, we provide one-stop services to make your global trade simpler'
-      },
-      items: [
-        {
-          title: 'Custom Product Development',
-          desc: 'Professional custom product services based on your needs, with quality control from design to production.',
-          list: ['Product Design & Prototyping', 'Small Batch Production', 'Mass Production']
-        },
-        {
-          title: 'Supply Chain Management',
-          desc: 'Optimize your supply chain with efficient management from procurement to delivery.',
-          list: ['Supplier Management', 'Inventory Optimization', 'Logistics & Distribution']
-        },
-        {
-          title: 'Global Market Expansion',
-          desc: 'Help you enter global markets with market analysis and localization services.',
-          list: ['Market Research', 'Brand Positioning', 'Channel Development']
-        },
-        {
-          title: 'Quality Control',
-          desc: 'Strict quality control system to ensure every product meets international standards.',
-          list: ['Raw Material Inspection', 'Production Monitoring', 'Finished Product Testing']
-        }
-      ],
-      cta: {
-        title: 'Need custom solutions?',
-        desc: 'Our expert team will provide you with tailor-made solutions based on your specific needs',
-        btn: 'Contact Us'
       }
     }
   },
@@ -294,53 +248,6 @@ const siteConfig = {
         desc: '联系我们，获取完整的产品目录和定制报价',
         btn: '联系我们'
       }
-    },
-    en: {
-      page: {
-        tag: 'Products',
-        title: 'Popular Products',
-        desc: 'We provide a variety of high-quality products to meet the different needs of global customers'
-      },
-      filters: ['All', 'Electronics', 'Home Goods', 'Outdoor', 'Gifts'],
-      categories: [
-        {
-          name: 'Electronics',
-          items: [
-            { name: 'Smartphones', desc: 'High-end smartphones with global band support' },
-            { name: 'Tablets', desc: 'Lightweight and portable, powerful performance' },
-            { name: 'Smart Watches', desc: 'Health monitoring, smart reminders' }
-          ]
-        },
-        {
-          name: 'Home Goods',
-          items: [
-            { name: 'Smart Home Kits', desc: 'Smart control, energy saving and environmental protection' },
-            { name: 'Kitchen Appliances', desc: 'High-quality kitchen appliances to enhance life quality' },
-            { name: 'Home Decoration', desc: 'Stylish and beautiful home decorations' }
-          ]
-        },
-        {
-          name: 'Outdoor',
-          items: [
-            { name: 'Outdoor Tents', desc: 'Waterproof and durable, suitable for various environments' },
-            { name: 'Mountaineering Equipment', desc: 'Professional mountaineering equipment, safe and reliable' },
-            { name: 'Outdoor Clothing', desc: 'Waterproof and breathable, comfortable and durable' }
-          ]
-        },
-        {
-          name: 'Gifts',
-          items: [
-            { name: 'Custom Pens', desc: 'Exquisite custom pens, showcasing quality' },
-            { name: 'Business Notebooks', desc: 'High-quality business notebooks' },
-            { name: 'Brand Gift Sets', desc: 'Custom brand gift sets' }
-          ]
-        }
-      ],
-      cta: {
-        title: 'Need more product information?',
-        desc: 'Contact us to get the complete product catalog and custom quotes',
-        btn: 'Contact Us'
-      }
     }
   },
   
@@ -389,51 +296,6 @@ const siteConfig = {
         title: '成为下一个成功案例',
         desc: '联系我们，了解如何像这些客户一样实现业务增长',
         btn: '开始合作'
-      }
-    },
-    en: {
-      page: {
-        tag: 'Case Studies',
-        title: 'They Work With Us',
-        desc: 'Learn why global brands choose to work with us'
-      },
-      tags: ['Electronics', 'Home Goods', 'Gifts', 'Outdoor', 'Europe', 'Asia', 'Americas', 'Global', 'Middle East'],
-      items: [
-        {
-          title: 'TechCorp Europe Expansion',
-          desc: 'Helped TechCorp successfully enter the European market with 200% sales growth.',
-          tags: ['Electronics', 'Europe']
-        },
-        {
-          title: 'HomeStyle Global Supply Chain Optimization',
-          desc: 'Optimized global supply chain for HomeStyle, reducing costs by 30% and improving delivery efficiency.',
-          tags: ['Home Goods', 'Global']
-        },
-        {
-          title: 'OutdoorPro Brand Internationalization',
-          desc: 'Helped OutdoorPro brand globalization, covering 30+ countries, brand awareness increased by 50%.',
-          tags: ['Outdoor', 'Global']
-        },
-        {
-          title: 'GiftExpress Custom Product Service',
-          desc: 'Provided custom gift services for GiftExpress, helping it become an industry leader.',
-          tags: ['Gifts', 'Americas']
-        },
-        {
-          title: 'ElectroTech Quality Control System',
-          desc: 'Established a comprehensive quality control system for ElectroTech, product qualification rate increased to 99.9%.',
-          tags: ['Electronics', 'Asia']
-        },
-        {
-          title: 'HomeLiving Market Entry Strategy',
-          desc: 'Helped HomeLiving develop Middle East market entry strategy, successfully opening the local market.',
-          tags: ['Home Goods', 'Middle East']
-        }
-      ],
-      cta: {
-        title: 'Become the next success story',
-        desc: 'Contact us to learn how to achieve business growth like these clients',
-        btn: 'Start Cooperation'
       }
     }
   },
@@ -491,58 +353,6 @@ const siteConfig = {
         placeholder: '您的邮箱',
         btn: '订阅'
       }
-    },
-    en: {
-      page: {
-        tag: 'News',
-        title: 'Company News',
-        desc: 'Stay updated with our latest news and industry insights'
-      },
-      filters: ['All', 'Company News', 'Industry News', 'Events'],
-      items: [
-        {
-          date: '2026-04-20',
-          category: 'Company News',
-          title: 'Company Wins Annual Best Foreign Trade Enterprise Award',
-          desc: 'We are proud to announce that TradePro has been named the Best Foreign Trade Enterprise of 2026, recognizing our team\'s efforts.'
-        },
-        {
-          date: '2026-04-15',
-          category: 'Industry News',
-          title: '2026 Global Trade Trend Analysis',
-          desc: 'Latest data shows that global trade is recovering, with emerging markets driving growth.'
-        },
-        {
-          date: '2026-04-10',
-          category: 'Events',
-          title: 'Participating in 2026 Spring Canton Fair',
-          desc: 'We will participate in the 2026 Spring Canton Fair. Welcome to visit us for business discussions.'
-        },
-        {
-          date: '2026-04-05',
-          category: 'Company News',
-          title: 'Company\'s 15th Anniversary Celebration',
-          desc: 'TradePro celebrates its 15th anniversary, thanking all customers and partners for their support and trust.'
-        },
-        {
-          date: '2026-03-28',
-          category: 'Industry News',
-          title: 'Southeast Asia Market Trade Opportunity Analysis',
-          desc: 'Southeast Asia is becoming a hot spot for global trade. We analyze the latest market opportunities for you.'
-        },
-        {
-          date: '2026-03-20',
-          category: 'Events',
-          title: 'Signing Strategic Cooperation Agreement with European Clients',
-          desc: 'We have reached strategic cooperation with well-known European brands to jointly explore global markets.'
-        }
-      ],
-      cta: {
-        title: 'Subscribe to Our News',
-        desc: 'Get the latest company updates and industry news',
-        placeholder: 'Your email',
-        btn: 'Subscribe'
-      }
     }
   },
   
@@ -579,39 +389,6 @@ const siteConfig = {
         title: '准备好开始合作了吗？',
         desc: '联系我们，了解更多关于我们的服务如何帮助您的业务增长',
         btn: '联系我们'
-      }
-    },
-    en: {
-      page: {
-        tag: 'About Us',
-        title: 'Your Global Trade Partner',
-        desc: '15 years of industry experience, providing professional trade solutions to global customers'
-      },
-      stats: [
-        { number: '15+', text: 'Years Experience' },
-        { number: '500+', text: 'Global Clients' },
-        { number: '2000+', text: 'Success Cases' },
-        { number: '30+', text: 'Countries' }
-      ],
-      story: {
-        tag: 'Our Story',
-        title: 'Connecting Global, Creating Value',
-        desc1: 'We are a professional global trade solutions provider with over 15 years of foreign trade industry experience.',
-        desc2: 'Since our establishment, we have been committed to providing high-quality products and professional services to global customers, helping them expand international markets and achieve business growth.',
-        desc3: 'With rich industry experience and a professional team, we have successfully provided trade solutions to more than 500 customers from over 30 countries and regions around the world, helping them succeed in the international market.'
-      },
-      team: {
-        title: 'Professional Team',
-        members: [
-          { name: 'Zhang Ming', position: 'CEO', desc: '15 years of foreign trade industry experience, focusing on global market expansion' },
-          { name: 'Li Hua', position: 'Operations Director', desc: '10 years of supply chain management experience, optimizing global supply chains' },
-          { name: 'Wang Fang', position: 'Sales Director', desc: '8 years of international sales experience, expanding global customer network' }
-        ]
-      },
-      cta: {
-        title: 'Ready to start cooperation?',
-        desc: 'Contact us to learn more about how our services can help your business grow',
-        btn: 'Contact Us'
       }
     }
   },
@@ -665,32 +442,6 @@ const siteConfig = {
           }
         ]
       },
-      form: {
-        title: '发送消息',
-        fields: {
-          name: {
-            label: '姓名',
-            placeholder: '您的姓名'
-          },
-          email: {
-            label: '邮箱',
-            placeholder: '您的邮箱'
-          },
-          phone: {
-            label: '电话',
-            placeholder: '您的电话'
-          },
-          subject: {
-            label: '主题',
-            placeholder: '消息主题'
-          },
-          message: {
-            label: '消息',
-            placeholder: '请输入您的消息'
-          }
-        },
-        submit: '发送消息'
-      },
       follow: {
         title: '关注我们',
         social: [
@@ -701,91 +452,6 @@ const siteConfig = {
       },
       map: {
         text: '地图加载中...'
-      }
-    },
-    en: {
-      header: {
-        tag: 'Contact',
-        title: 'Start Cooperation',
-        description: 'We look forward to hearing from you and providing professional trade solutions'
-      },
-      info: {
-        title: 'Contact Information',
-        items: [
-          {
-            title: 'Address',
-            content: 'Pudong New Area, Shanghai, China',
-            icon: {
-              class: 'fa-map-marker',
-              bg: 'bg-blue-100',
-              color: 'text-blue-600'
-            }
-          },
-          {
-            title: 'Phone',
-            content: '+86 123 4567 8910',
-            icon: {
-              class: 'fa-phone',
-              bg: 'bg-green-100',
-              color: 'text-green-600'
-            }
-          },
-          {
-            title: 'Email',
-            content: 'info@tradepro.com',
-            icon: {
-              class: 'fa-envelope',
-              bg: 'bg-purple-100',
-              color: 'text-purple-600'
-            }
-          },
-          {
-            title: 'Business Hours',
-            content: 'Monday - Friday: 9:00 - 18:00',
-            icon: {
-              class: 'fa-clock-o',
-              bg: 'bg-orange-100',
-              color: 'text-orange-600'
-            }
-          }
-        ]
-      },
-      form: {
-        title: 'Send Message',
-        fields: {
-          name: {
-            label: 'Name',
-            placeholder: 'Your name'
-          },
-          email: {
-            label: 'Email',
-            placeholder: 'Your email'
-          },
-          phone: {
-            label: 'Phone',
-            placeholder: 'Your phone'
-          },
-          subject: {
-            label: 'Subject',
-            placeholder: 'Message subject'
-          },
-          message: {
-            label: 'Message',
-            placeholder: 'Please enter your message'
-          }
-        },
-        submit: 'Send Message'
-      },
-      follow: {
-        title: 'Follow Us',
-        social: [
-          { icon: 'fa-facebook', url: '#' },
-          { icon: 'fa-twitter', url: '#' },
-          { icon: 'fa-linkedin', url: '#' }
-        ]
-      },
-      map: {
-        text: 'Loading map...'
       }
     }
   },
@@ -821,36 +487,6 @@ const siteConfig = {
         ]
       },
       rights: '保留所有权利.'
-    },
-    en: {
-      description: 'Professional global trade solutions provider, helping you expand global markets and create business value.',
-      quickLinks: {
-        title: 'Quick Links',
-        links: [
-          { name: 'Home', url: 'index.html' },
-          { name: 'Solutions', url: 'solutions.html' },
-          { name: 'Products', url: 'products.html' },
-          { name: 'Cases', url: 'cases.html' },
-          { name: 'News', url: 'news.html' },
-          { name: 'About Us', url: 'about.html' },
-          { name: 'Contact', url: 'contact.html' }
-        ]
-      },
-      contact: {
-        title: 'Contact Us',
-        address: 'Pudong New Area, Shanghai, China',
-        phone: '+86 123 4567 8910',
-        email: 'info@tradepro.com'
-      },
-      follow: {
-        title: 'Follow Us',
-        social: [
-          { icon: 'fa-facebook', url: '#' },
-          { icon: 'fa-twitter', url: '#' },
-          { icon: 'fa-linkedin', url: '#' }
-        ]
-      },
-      rights: 'All rights reserved.'
     }
   }
 };

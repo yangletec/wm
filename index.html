@@ -3,14 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>外贸公司 - 全球贸易解决方案</title>
+    <meta name="keywords" id="meta-keywords">
+    <meta name="description" id="meta-description">
+    <meta name="author" id="meta-author">
+    <title id="page-title"></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="config.js"></script>
+    <script>
+        // 设置SEO元标签
+        document.addEventListener('DOMContentLoaded', function() {
+            const seo = siteConfig.seo.zh.index;
+            const siteSeo = siteConfig.site.seo;
+            
+            document.getElementById('page-title').textContent = seo.title;
+            document.getElementById('meta-description').setAttribute('content', seo.description);
+            document.getElementById('meta-keywords').setAttribute('content', siteSeo.keywords);
+            document.getElementById('meta-author').setAttribute('content', siteSeo.author);
+            
+            // 加载配色方案
+            loadColorScheme();
+        });
+        
+        // 加载配色方案
+        function loadColorScheme() {
+            const colors = siteConfig.colors[siteConfig.colors.current];
+            const root = document.documentElement;
+            
+            // 设置CSS变量
+            root.style.setProperty('--primary-color', colors.primary);
+            root.style.setProperty('--secondary-color', colors.secondary);
+            root.style.setProperty('--accent-color', colors.accent);
+            root.style.setProperty('--white-color', colors.white || colors.primary);
+            root.style.setProperty('--light-gray', colors.lightGray);
+            root.style.setProperty('--medium-gray', colors.mediumGray);
+            root.style.setProperty('--dark-gray', colors.darkGray);
+            root.style.setProperty('--text-color', colors.text || colors.darkGray);
+            root.style.setProperty('--dark-text', colors.darkText || colors.black || colors.darkGray);
+        }
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #93c5fd;
+            --white-color: #ffffff;
+            --light-gray: #f3f4f6;
+            --medium-gray: #9ca3af;
+            --dark-gray: #374151;
+            --text-color: #374151;
+            --dark-text: #111827;
+        }
         body {
             font-family: 'Inter', sans-serif;
+            color: var(--text-color);
         }
         .hero-section {
             background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.8) 100%), 
@@ -26,13 +73,13 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         .gradient-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .btn-gradient {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #8b5cf6 100%);
             transition: all 0.3s ease;
         }
         .btn-gradient:hover {
@@ -40,7 +87,7 @@
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
         .stat-number {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -60,18 +107,7 @@
                 </div>
                 <div class="hidden lg:flex items-center gap-8" id="main-nav"></div>
                 <div class="hidden lg:flex items-center gap-4">
-                    <div class="relative">
-                        <button id="lang-switcher" class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 transition-colors">
-                            <i class="fa fa-globe text-gray-600"></i>
-                            <span id="current-lang" class="text-gray-700 font-medium">中文</span>
-                            <i class="fa fa-chevron-down text-gray-400 text-xs"></i>
-                        </button>
-                        <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-1">
-                            <button onclick="switchLanguage('zh')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 text-sm">中文</button>
-                            <button onclick="switchLanguage('en')" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 text-sm">English</button>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn-gradient px-5 py-2.5 rounded-lg font-medium text-white" data-lang="nav-contact-btn">联系我们</a>
+                    <a href="contact.html" class="btn-gradient px-5 py-2.5 rounded-lg font-medium text-white">联系我们</a>
                 </div>
                 <button id="mobile-menu-btn" class="lg:hidden text-gray-600">
                     <i class="fa fa-bars text-xl"></i>
@@ -151,16 +187,6 @@
     </footer>
 
     <script>
-        let currentLang = siteConfig.site.language;
-
-        function switchLanguage(lang) {
-            currentLang = lang;
-            document.getElementById('current-lang').textContent = lang === 'zh' ? '中文' : 'English';
-            document.getElementById('lang-dropdown').classList.add('hidden');
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-            updateContent();
-        }
-
         function updateContent() {
             updateNavigation();
             updateHero();
@@ -174,7 +200,7 @@
         }
 
         function updateNavigation() {
-            const navItems = siteConfig.navigation[currentLang];
+            const navItems = siteConfig.navigation.zh;
             
             // 主导航
             const mainNav = document.getElementById('main-nav');
@@ -197,19 +223,10 @@
                 link.textContent = item.name;
                 mobileNav.appendChild(link);
             });
-
-            // 语言切换按钮
-            const langButtons = document.createElement('div');
-            langButtons.className = 'flex items-center gap-4 pt-3 border-t';
-            langButtons.innerHTML = `
-                <button onclick="switchLanguage('zh')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">中文</button>
-                <button onclick="switchLanguage('en')" class="px-3 py-1 border rounded hover:border-blue-500 text-sm">English</button>
-            `;
-            mobileNav.appendChild(langButtons);
         }
 
         function updateHero() {
-            const hero = siteConfig.home[currentLang].hero;
+            const hero = siteConfig.home.zh.hero;
             const heroContent = document.getElementById('hero-content');
             heroContent.innerHTML = `
                 <span class="inline-block px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm font-medium mb-6">
@@ -233,7 +250,7 @@
         }
 
         function updateStats() {
-            const stats = siteConfig.home[currentLang].stats;
+            const stats = siteConfig.home.zh.stats;
             const statsContainer = document.getElementById('stats-container');
             statsContainer.innerHTML = '';
             stats.forEach(stat => {
@@ -248,7 +265,7 @@
         }
 
         function updateSolutions() {
-            const solutions = siteConfig.home[currentLang].solutions;
+            const solutions = siteConfig.home.zh.solutions;
             const solutionsHeader = document.getElementById('solutions-header');
             solutionsHeader.innerHTML = `
                 <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase">${solutions.tag}</span>
@@ -321,7 +338,7 @@
         }
 
         function updateProducts() {
-            const products = siteConfig.home[currentLang].products;
+            const products = siteConfig.home.zh.products;
             const productsHeader = document.getElementById('products-header');
             productsHeader.innerHTML = `
                 <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase">${products.tag}</span>
@@ -356,7 +373,7 @@
         }
 
         function updateCases() {
-            const cases = siteConfig.home[currentLang].cases;
+            const cases = siteConfig.home.zh.cases;
             const casesHeader = document.getElementById('cases-header');
             casesHeader.innerHTML = `
                 <span class="text-blue-400 font-semibold text-sm tracking-wider uppercase">${cases.tag}</span>
@@ -392,7 +409,7 @@
         }
 
         function updateCta() {
-            const cta = siteConfig.home[currentLang].cta;
+            const cta = siteConfig.home.zh.cta;
             const ctaHeader = document.getElementById('cta-header');
             ctaHeader.innerHTML = `
                 <span class="text-blue-600 font-semibold text-sm tracking-wider uppercase">${cta.tag}</span>
@@ -410,7 +427,7 @@
         }
 
         function updateFooter() {
-            const footer = siteConfig.footer[currentLang];
+            const footer = siteConfig.footer.zh;
             const footerContainer = document.getElementById('footer-container');
             footerContainer.innerHTML = `
                 <div>
@@ -449,15 +466,6 @@
                 <p>&copy; 2026 ${siteConfig.site.name}. ${footer.rights}</p>
             `;
         }
-
-        document.getElementById('lang-switcher').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.getElementById('lang-dropdown').classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', function() {
-            document.getElementById('lang-dropdown').classList.add('hidden');
-        });
 
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
